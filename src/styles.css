@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: #85dbc8;
+  background-clip: padding-box;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.692);
+  font-family: "Open Sans", sans-serif;
+  font-size: 25px;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.card {
+  width: fit-content;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 3rem;
+  max-width: 60vw;
+  min-width: 60vw;
+
+  min-height: 50vh;
+  border-radius: 0.8rem;
+  background-color: #41b3a3;
+  box-shadow: 0.05rem 0.1rem 15px 15px rgba(255, 255, 255, 0.2);
+}
+
+button,
+.link {
+  border: none;
+  border-radius: 1rem;
+  padding: 0.4rem 0.7rem;
+  width: 10rem;
+  background-color: #85dbc8;
+  font-family: "Open Sans", sans-serif;
+  color: rgba(0, 0, 0, 0.842);
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover,
+.link:hover {
+  transition: background-color ease-out 0.12s 0s;
+  background-color: #41b3a3;
+}
+.link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.842);
+}

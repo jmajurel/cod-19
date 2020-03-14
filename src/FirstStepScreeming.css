@@ -1,0 +1,16 @@
+.firstStepScreening .symptom {
+  margin-left: 1rem;
+}
+.symptoms {
+  text-align: right;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+.symptom {
+  width: 2rem;
+  height: 1.1rem;
+}
+.firstStepScreening button[type="submit"] {
+  margin-top: 1rem;
+}

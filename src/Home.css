@@ -1,0 +1,17 @@
+.home .cardContent {
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.home .cardContent .link {
+  font-size: 2rem;
+  width: 20rem;
+}
+
+.fa-rocket {
+  margin-left: 0.6rem;
+}

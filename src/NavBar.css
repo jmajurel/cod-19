@@ -1,0 +1,15 @@
+.navBar {
+  width: 100%;
+  display: flex;
+  margin: 0;
+  padding: 1.5rem;
+}
+
+.navBar .navItem .link-nav {
+  text-decoration: none;
+  color: black;
+  margin-right: 2rem;
+  font-size: 1em;
+  text-decoration: none;
+  padding-right: 1rem;
+}
