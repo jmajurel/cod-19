@@ -3,7 +3,7 @@
 }
 .symptoms {
   text-align: right;
-  width: fit-content;
+  width: max-content;
   margin: 0 auto;
   margin-bottom: 1rem;
 }

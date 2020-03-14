@@ -2,6 +2,8 @@ import React from "react";
 
 const PotentialSickCase = () => (
   <div className="card">
+    <p>Based on your screening result, you might have some chance to get it</p>
+    <p>Please keep calm and goes through the following steps</p>
     <p>Firsly, please do no go straight to your local GP </p>
     <p>Contact the free help numbers dedicated to the coronavirus</p>
     <p>

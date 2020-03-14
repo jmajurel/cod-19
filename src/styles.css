@@ -7,15 +7,49 @@
   min-height: 100vh;
   background: #85dbc8;
   background-clip: padding-box;
+  background-size: cover;
   margin: 0;
   color: rgba(0, 0, 0, 0.692);
   font-family: "Open Sans", sans-serif;
-  font-size: 25px;
+  /*font-size: 1.8rem;*/
 }
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .App {
+    font-size: 12px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  .App {
+    font-size: 14px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  .App {
+    font-size: 16px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+  .App {
+    font-size: 18px;
+  }
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
+  position: absolute;
 }
 
 ul {
