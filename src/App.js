@@ -1,11 +1,12 @@
 import React from "react";
 import "./styles.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Screening from "./Screening";
-import Home from "./Home";
-import Protection from "./Protection";
-import NavBar from "./NavBar";
-import Footer from "./Footer";
+import Screening from "./Containers/Screening";
+import Situation from "./Containers/Situation";
+import Home from "./Components/Home";
+import Protection from "./Components/Protection";
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 
 export default function App() {
   return (
@@ -21,6 +22,9 @@ export default function App() {
           </Route>
           <Route path="/protection">
             <Protection />
+          </Route>
+          <Route path="/situation">
+            <Situation />
           </Route>
         </Switch>
         <Footer />

@@ -18,7 +18,7 @@ const Protection = () => (
     </div>
 
     <div className="transmission">
-      <h3>How the virus spread</h3>
+      <h3>How the virus spreads</h3>
       <p>The CPVID-19 virus mainly spread from splutters</p>
       <p>
         It is adviced to keep a distance of 1 meter between people to limit the

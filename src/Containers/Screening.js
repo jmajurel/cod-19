@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Route, Switch, useHistory, useRouteMatch } from "react-router-dom";
-import FirstStepScreening from "./FirstStepScreening";
-import SecondStepScreening from "./SecondStepScreening";
-import PotentialSickCase from "./PotentialSickCase";
+import FirstStepScreening from "../Components/FirstStepScreening";
+import SecondStepScreening from "../Components/SecondStepScreening";
+import PotentialSickCase from "../Components/PotentialSickCase";
 
-import AllGood from "./AllGood";
+import AllGood from "../Components/AllGood";
 
 const Screening = () => {
   const [symptopms, setSymptopms] = useState([]);
