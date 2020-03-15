@@ -64,7 +64,6 @@ ul {
   padding: 3rem;
   max-width: 60vw;
   min-width: 60vw;
-
   min-height: 50vh;
   border-radius: 0.8rem;
   background-color: #41b3a3;
@@ -90,7 +89,22 @@ button:hover,
   transition: background-color ease-out 0.12s 0s;
   background-color: #41b3a3;
 }
+
 .link {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.842);
+}
+
+.fa-clipboard-list {
+  font-size: 2rem;
+  margin-right: 1rem;
+}
+
+.formItem {
+  padding: 1rem;
+}
+
+input[type="checkbox"] {
+  width: 2rem;
+  height: 1.1rem;
 }

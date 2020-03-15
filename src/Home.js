@@ -9,7 +9,7 @@ const Home = () => (
       <h2>Keep calm and start the screening process</h2>
       <Link className="link" to="/screening">
         Let's do it
-        <i class="fas fa-rocket" />
+        <i className="fas fa-rocket" />
       </Link>
     </div>
   </div>

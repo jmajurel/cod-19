@@ -5,6 +5,7 @@ import Screening from "./Screening";
 import Home from "./Home";
 import Protection from "./Protection";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Protection />
           </Route>
         </Switch>
+        <Footer />
       </BrowserRouter>
     </div>
   );

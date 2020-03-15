@@ -15,3 +15,12 @@
 .fa-rocket {
   margin-left: 0.6rem;
 }
+.footer {
+  position: absolute;
+  bottom: 0;
+  padding: 0.8rem;
+}
+.footer p {
+  margin: 0;
+  padding: 0.2rem;
+}

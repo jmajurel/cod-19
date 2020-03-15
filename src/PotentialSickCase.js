@@ -2,6 +2,10 @@ import React from "react";
 
 const PotentialSickCase = () => (
   <div className="card">
+    <h2>
+      <i className="fas fa-clipboard-list" />
+      Result
+    </h2>
     <p>Based on your screening result, you might have some chance to get it</p>
     <p>Please keep calm and goes through the following steps</p>
     <p>Firsly, please do no go straight to your local GP </p>

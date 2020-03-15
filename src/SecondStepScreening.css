@@ -1,0 +1,8 @@
+.secondStepScreeming .formGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.secondStepScreeming .formItem label {
+  margin-right: 20px;
+}
