@@ -1,4 +1,5 @@
 import React from "react";
+import "./Protection.css";
 
 const Protection = () => (
   <div className="protection card">
@@ -9,10 +10,10 @@ const Protection = () => (
         in our countries and save lives
       </h3>
       <ol>
-        <li>Wash your hands using soap and/or hydroalcoholic gel</li>
-        <li>When coughing/sneezing please do it in a tissue or in elbow</li>
+        <li>Wash your hands using soap 🧼👏 and/or hydroalcoholic gel 🧴</li>
+        <li>When coughing/sneezing 🤧 please do it in a tissue or in elbow</li>
         <li>Use disposable tissue and through it away after usage</li>
-        <li>Do not shackhand and avoid huges</li>
+        <li>Do not shackhand 🚫🤝and avoid huges</li>
       </ol>
     </div>
 

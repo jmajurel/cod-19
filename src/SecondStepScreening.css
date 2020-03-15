@@ -1,8 +1,30 @@
 .secondStepScreeming .formGroup {
-  display: flex;
-  flex-direction: column;
+  width: fit-content;
   text-align: left;
+  margin: 0 auto;
 }
+.secondStepScreeming .formGroup button {
+  text-align: center;
+}
+
 .secondStepScreeming .formItem label {
   margin-right: 20px;
+}
+.secondStepScreeming .formGroup select,
+#age {
+  border: none;
+  outline: none;
+  border-radius: 0.1rem;
+  background: whitesmoke;
+  padding: 0.2rem;
+}
+
+#age {
+  width: 4rem;
+}
+#genders {
+  margin-right: 1rem;
+}
+#conditions {
+  margin-top: 1rem;
 }

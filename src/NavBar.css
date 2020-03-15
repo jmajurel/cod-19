@@ -13,3 +13,6 @@
   text-decoration: none;
   padding-right: 1rem;
 }
+.navBar .navItem {
+  font-weight: 600;
+}

@@ -13,6 +13,11 @@ const NavBar = () => (
         Protection
       </Link>
     </li>
+    <li className="navItem">
+      <Link className="link-nav" to="/situation">
+        Situation
+      </Link>
+    </li>
   </ul>
 );
 

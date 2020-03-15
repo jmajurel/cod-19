@@ -60,7 +60,7 @@ ul {
   width: fit-content;
   text-align: center;
   margin: 0 auto;
-  margin-top: 10%;
+  margin-top: 7%;
   padding: 3rem;
   max-width: 60vw;
   min-width: 60vw;
@@ -107,4 +107,10 @@ button:hover,
 input[type="checkbox"] {
   width: 2rem;
   height: 1.1rem;
+}
+
+.contact:hover,
+.navItem:hover {
+  transition: opacity 0.3s ease-in 0s;
+  opacity: 0.6;
 }

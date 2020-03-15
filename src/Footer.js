@@ -11,10 +11,13 @@ const Footer = () => (
       the aim of fighting CODIV-19
     </p>
     <div className="contacts">
-      <a href="https://www.linkedin.com/in/jean-f%C3%A9lix-majurel-a142235a/">
+      <a
+        className="contact"
+        href="https://www.linkedin.com/in/jean-f%C3%A9lix-majurel-a142235a/"
+      >
         <i className="fab fa-linkedin" />
       </a>
-      <a href="https://github.com/jmajurel">
+      <a className="contact" href="https://github.com/jmajurel">
         <i className="fab fa-github" />
       </a>
     </div>
