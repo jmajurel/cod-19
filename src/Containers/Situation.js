@@ -8,6 +8,9 @@ const Situation = () => {
   const height = 400;
   useEffect(() => {
     function handleSituationsChange(newSituations) {
+      newSituations = newSituations.sort((a, b) =>
+        d3.ascending(a.timeStamp, b.timeStamp)
+      );
       setSituations([...newSituations]);
     }
 
@@ -29,10 +32,9 @@ const Situation = () => {
       .attr("viewBox", [0, 0, width - padding * 2, height + padding * 2]);
 
     const dataXRange = d3.extent(situations, d => Date.parse(d.timeStamp));
-
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(situations, d => d.activeCase)])
+      .domain([0, d3.max(situations, d => +d.activeCase)])
       .nice()
       .range([height - margin, margin]);
 
@@ -61,7 +63,23 @@ const Situation = () => {
       .attr("x", (d, idx) => xScale(Date.parse(d.timeStamp)))
       .attr("width", barWidth)
       .attr("y", d => yScale(d.activeCase))
-      .attr("height", d => yScale(0) - yScale(d.activeCase));
+      .attr("height", d => yScale(0) - yScale(+d.activeCase));
+
+    svg
+      .append("path")
+      .datum(situations)
+      .attr("fill", "none")
+      .attr("stroke", "#001f3f")
+      .attr("stroke-width", 1.5)
+      .attr(
+        "d",
+        d3
+          .line()
+          .x((d, idx) => xScale(Date.parse(d.timeStamp)))
+          .y(function(d) {
+            return yScale(+d.activeCase);
+          })
+      );
 
     svg
       .append("g")
@@ -124,6 +142,8 @@ const Situation = () => {
       const svg = d3.select("svg");
       svg.selectAll("g").remove();
       svg.selectAll("text").remove();
+
+      svg.selectAll("path").remove();
     };
   });
 
