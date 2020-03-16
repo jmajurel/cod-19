@@ -201,6 +201,10 @@ const Situation = () => {
   return (
     <div>
       <svg fill="red" className="graph" width={width} height={height} />
+      <p>
+        This vizualization is based on public data from the{" "}
+        <a href="https://www.who.int/">World Health Organization</a>
+      </p>
     </div>
   );
 };
