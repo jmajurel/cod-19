@@ -82,6 +82,58 @@ const Situation = () => {
       );
 
     svg
+      .selectAll("circle")
+      .data(situations)
+      .enter()
+      .append("circle")
+      .attr("opacity", "0.7")
+      .attr("cx", function(d) {
+        return xScale(Date.parse(d.timeStamp));
+      })
+      .attr("cy", function(d) {
+        return yScale(d.activeCase);
+      })
+      .attr("r", function(d, i) {
+        return 4.5;
+      })
+      .attr("id", function(d) {
+        return d.id;
+      })
+      .style("fill", "#001f3f")
+      .on("mouseover touchenter", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .style("fill", "#fcb0b5");
+
+        svg
+          .selectAll("#tooltip")
+          .data([d])
+          .enter()
+          .append("text")
+          .attr("id", "tooltip")
+          .attr("font-weight", "bold")
+          .attr("fill", "#001f3f")
+          .text(function(d, i) {
+            return d.activeCase.toLocaleString();
+          })
+          .attr("y", function(d) {
+            return yScale(d.activeCase) - 10;
+          })
+          .attr("x", function(d) {
+            return xScale(Date.parse(d.timeStamp));
+          });
+      })
+      .on("mouseout touchleave", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .style("fill", "#001f3f");
+
+        svg.selectAll("#tooltip").remove();
+      });
+
+    svg
       .append("g")
       .classed("xAxis", true)
       .attr("transform", `translate(${0}, ${height - margin} )`)
@@ -144,6 +196,8 @@ const Situation = () => {
       svg.selectAll("text").remove();
 
       svg.selectAll("path").remove();
+
+      svg.selectAll("circle").remove();
     };
   });
 
