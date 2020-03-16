@@ -6,7 +6,6 @@ const SecondStepScreening = ({ onSubmit }) => {
   const [age, setAge] = useState();
   const [conditions, setConditions] = useState([]);
   const [travel, setTravel] = useState(false);
-
   function handleSubmit(event) {
     event.preventDefault();
     onSubmit({ gender, age, travel, conditions });
