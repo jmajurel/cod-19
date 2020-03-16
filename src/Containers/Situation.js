@@ -64,22 +64,19 @@ const Situation = () => {
       .attr("width", barWidth)
       .attr("y", d => yScale(d.activeCase))
       .attr("height", d => yScale(0) - yScale(+d.activeCase));
-
+    const line = d3
+      .line()
+      .x((d, idx) => xScale(Date.parse(d.timeStamp)))
+      .y(function(d) {
+        return yScale(+d.activeCase);
+      });
     svg
       .append("path")
       .datum(situations)
       .attr("fill", "none")
       .attr("stroke", "#001f3f")
       .attr("stroke-width", 1.5)
-      .attr(
-        "d",
-        d3
-          .line()
-          .x((d, idx) => xScale(Date.parse(d.timeStamp)))
-          .y(function(d) {
-            return yScale(+d.activeCase);
-          })
-      );
+      .attr("d", line);
 
     svg
       .selectAll("circle")
@@ -104,7 +101,7 @@ const Situation = () => {
         d3.select(this)
           .transition()
           .duration(200)
-          .style("fill", "#fcb0b5");
+          .style("opacity", "0.2");
 
         svg
           .selectAll("#tooltip")
@@ -128,9 +125,9 @@ const Situation = () => {
         d3.select(this)
           .transition()
           .duration(200)
-          .style("fill", "#001f3f");
+          .style("opacity", "0.8");
 
-        svg.selectAll("#tooltip").remove();
+        d3.select("#tooltip").remove();
       });
 
     svg
