@@ -1,8 +1,7 @@
 import apiCall from "./apiCall";
-const API_URL = "https://cod19-situation.herokuapp.com/situations";
 
 function getAllSituation() {
-  return apiCall(API_URL, "GET");
+  return apiCall(process.env.API_URL + "situations", "GET");
 }
 
 export default { getAllSituation };
