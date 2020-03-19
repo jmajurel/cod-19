@@ -7,20 +7,24 @@ import * as d3 from "d3";
 const Situation = () => {
   const [situations, setSituations] = useState([]);
   const [countries, setCountries] = useState([]);
-  const [countrySituations, setCountrySituations] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("World");
 
   const width = 800;
   const height = 450;
+
   useEffect(() => {
     function handleCountriesChange(receivedCountries) {
-      console.log("receivedCountries: " + receivedCountries);
-      setCountries([...receivedCountries]);
+      setCountries([{ name: "World" }, ...receivedCountries]);
     }
     countryService
       .getAllCountries()
+      .then(countries =>
+        countries.filter(country => country.situations.length > 0)
+      )
       .then(handleCountriesChange)
       .catch(err => console.log("error: " + err));
   }, []);
+
   useEffect(() => {
     function handleSituationsChange(newSituations) {
       newSituations = newSituations.sort((a, b) =>
@@ -28,25 +32,18 @@ const Situation = () => {
       );
       setSituations([...newSituations]);
     }
-
-    situationService
-      .getAllGlobalSituations()
-      .then(handleSituationsChange)
-      .catch(err => console.log("error: " + err));
-  }, []);
-
-  useEffect(() => {
-    function handleCountrySituationChange(newSituations) {
-      newSituations = newSituations.sort((a, b) =>
-        d3.ascending(a.timeStamp, b.timeStamp)
-      );
-      setCountrySituations([...newSituations]);
+    if (selectedCountry == "World") {
+      situationService
+        .getAllGlobalSituations()
+        .then(handleSituationsChange)
+        .catch(err => console.log("error: " + err));
+    } else {
+      countryService
+        .getSituationByCountry(selectedCountry)
+        .then(handleSituationsChange)
+        .catch(err => console.log("error: " + err));
     }
-    countryService
-      .getSituationByCountry("France")
-      .then(handleCountrySituationChange)
-      .catch(err => console.log("error: " + err));
-  }, []);
+  }, [selectedCountry]);
 
   useEffect(() => {
     const margin = 10;
@@ -77,10 +74,10 @@ const Situation = () => {
       .nice();
 
     var yAxis = d3.axisLeft().scale(yScale);
-
+    const daysInterval = selectedCountry === "World" ? 5 : 2;
     var xAxis = d3
       .axisBottom(xScale)
-      .ticks(d3.timeDay.every(5))
+      .ticks(d3.timeDay.every(daysInterval))
       .tickFormat(d3.timeFormat("%b %d, %Y"))
       .tickSizeInner(5)
       .tickSizeOuter(5);
@@ -97,12 +94,26 @@ const Situation = () => {
       .attr("y", d => yScale(d.activeCase))
       .attr("height", d => yScale(0) - yScale(+d.activeCase));*/
 
-    const line = d3
+    const activeCaseLine = d3
       .line()
       .x((d, idx) => xScale(Date.parse(d.timeStamp)))
       .y(function(d) {
         return yScale(+d.activeCase);
       });
+
+    const deathLine = d3
+      .line()
+      .x((d, idx) => xScale(Date.parse(d.timeStamp)))
+      .y(function(d) {
+        return yScale(+d.totalDeaths);
+      });
+    /*svg
+      .append("path")
+      .datum(situations)
+      .attr("fill", "none")
+      .attr("stroke", "#001f3f")
+      .attr("stroke-width", 1.5)
+      .attr("d", line);*/
 
     svg
       .append("path")
@@ -110,16 +121,59 @@ const Situation = () => {
       .attr("fill", "none")
       .attr("stroke", "#001f3f")
       .attr("stroke-width", 1.5)
-      .attr("d", line);
+      .attr("d", activeCaseLine);
 
     svg
-      .append("path")
-      .datum(countrySituations)
-      .attr("fill", "red")
-      .attr("stroke", "#001f3f")
-      .attr("stroke-width", 1.5)
-      .attr("d", line);
+      .selectAll("circle")
+      .data(situations)
+      .enter()
+      .append("circle")
+      .attr("opacity", "0.7")
+      .attr("cx", function(d) {
+        return xScale(Date.parse(d.timeStamp));
+      })
+      .attr("cy", function(d) {
+        return yScale(d.activeCase);
+      })
+      .attr("r", function(d, i) {
+        return 4.5;
+      })
+      .attr("id", function(d) {
+        return d.id;
+      })
+      .style("fill", "#001f3f")
+      .on("mouseover touchenter", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .style("opacity", "0.2");
 
+        svg
+          .selectAll("#tooltip")
+          .data([d])
+          .enter()
+          .append("text")
+          .attr("id", "tooltip")
+          .attr("font-weight", "bold")
+          .attr("fill", "#001f3f")
+          .text(function(d, i) {
+            return d.activeCase.toLocaleString();
+          })
+          .attr("y", function(d) {
+            return yScale(d.activeCase) - 10;
+          })
+          .attr("x", function(d) {
+            return xScale(Date.parse(d.timeStamp));
+          });
+      })
+      .on("mouseout touchleave", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .style("opacity", "0.8");
+
+        d3.select("#tooltip").remove();
+      });
     svg
       .selectAll("circle")
       .data(situations)
@@ -227,7 +281,7 @@ const Situation = () => {
       .style("font-weight", "bold")
       .style("font-size", "20")
       .style("fill", "black")
-      .text("Number of active cases in the world over time");
+      .text("Number of active cases over time");
 
     return () => {
       const svg = d3.select("svg");
@@ -241,7 +295,7 @@ const Situation = () => {
   });
 
   function handleSelectionChange(event) {
-    console.log(event.target.value);
+    setSelectedCountry(event.target.value);
   }
 
   return (

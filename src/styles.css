@@ -114,3 +114,10 @@ input[type="checkbox"] {
   transition: opacity 0.3s ease-in 0s;
   opacity: 0.6;
 }
+select {
+  border: none;
+  outline: none;
+  border-radius: 0.1rem;
+  background: whitesmoke;
+  padding: 0.2rem;
+}
