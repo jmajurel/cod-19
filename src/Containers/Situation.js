@@ -1,11 +1,26 @@
 import React, { useState, useEffect } from "react";
 import situationService from "../Services/situationService";
+import countryService from "../Services/countryService";
+
 import * as d3 from "d3";
 
 const Situation = () => {
   const [situations, setSituations] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [countrySituations, setCountrySituations] = useState([]);
+
   const width = 800;
-  const height = 400;
+  const height = 450;
+  useEffect(() => {
+    function handleCountriesChange(receivedCountries) {
+      console.log("receivedCountries: " + receivedCountries);
+      setCountries([...receivedCountries]);
+    }
+    countryService
+      .getAllCountries()
+      .then(handleCountriesChange)
+      .catch(err => console.log("error: " + err));
+  }, []);
   useEffect(() => {
     function handleSituationsChange(newSituations) {
       newSituations = newSituations.sort((a, b) =>
@@ -15,21 +30,38 @@ const Situation = () => {
     }
 
     situationService
-      .getAllSituation()
+      .getAllGlobalSituations()
       .then(handleSituationsChange)
       .catch(err => console.log("error: " + err));
   }, []);
 
   useEffect(() => {
+    function handleCountrySituationChange(newSituations) {
+      newSituations = newSituations.sort((a, b) =>
+        d3.ascending(a.timeStamp, b.timeStamp)
+      );
+      setCountrySituations([...newSituations]);
+    }
+    countryService
+      .getSituationByCountry("France")
+      .then(handleCountrySituationChange)
+      .catch(err => console.log("error: " + err));
+  }, []);
+
+  useEffect(() => {
     const margin = 10;
-    const padding = width * 0.05;
+    const padding = width * 0.06;
     const barPadding = 5;
     const barWidth = width / situations.length - barPadding;
     // format the data
-    console.log("d3");
     const svg = d3
       .select("svg.graph")
-      .attr("viewBox", [0, 0, width - padding * 2, height + padding * 2]);
+      .attr("viewBox", [
+        0,
+        -(padding / 2),
+        width - padding * 2,
+        height + padding * 2
+      ]);
 
     const dataXRange = d3.extent(situations, d => Date.parse(d.timeStamp));
     const yScale = d3
@@ -53,7 +85,7 @@ const Situation = () => {
       .tickSizeInner(5)
       .tickSizeOuter(5);
 
-    svg
+    /*svg
       .append("g")
       .attr("fill", "purple")
       .selectAll("rect")
@@ -63,17 +95,27 @@ const Situation = () => {
       .attr("x", (d, idx) => xScale(Date.parse(d.timeStamp)))
       .attr("width", barWidth)
       .attr("y", d => yScale(d.activeCase))
-      .attr("height", d => yScale(0) - yScale(+d.activeCase));
+      .attr("height", d => yScale(0) - yScale(+d.activeCase));*/
+
     const line = d3
       .line()
       .x((d, idx) => xScale(Date.parse(d.timeStamp)))
       .y(function(d) {
         return yScale(+d.activeCase);
       });
+
     svg
       .append("path")
       .datum(situations)
       .attr("fill", "none")
+      .attr("stroke", "#001f3f")
+      .attr("stroke-width", 1.5)
+      .attr("d", line);
+
+    svg
+      .append("path")
+      .datum(countrySituations)
+      .attr("fill", "red")
       .attr("stroke", "#001f3f")
       .attr("stroke-width", 1.5)
       .attr("d", line);
@@ -198,9 +240,21 @@ const Situation = () => {
     };
   });
 
+  function handleSelectionChange(event) {
+    console.log(event.target.value);
+  }
+
   return (
     <div>
       <svg fill="red" className="graph" width={width} height={height} />
+      <div className="countrySelection">
+        <label>Select country : </label>
+        <select id="selection" onChange={handleSelectionChange}>
+          {countries.map(country => (
+            <option value={country.name}>{country.name}</option>
+          ))}
+        </select>
+      </div>
       <p>
         This vizualization is based on public data from the{" "}
         <a href="https://www.who.int/">World Health Organization</a>
