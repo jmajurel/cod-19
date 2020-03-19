@@ -4,14 +4,18 @@ import countryService from "../Services/countryService";
 
 import * as d3 from "d3";
 
+import "./Situation.css";
+
 const Situation = () => {
+  const items = ["activeCase", "newCase", "totalDeaths", "newDeaths"];
+
   const [situations, setSituations] = useState([]);
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("World");
+  const [selectedItem, setSelectedItem] = useState(items[0]);
 
   const width = 800;
   const height = 450;
-
   useEffect(() => {
     function handleCountriesChange(receivedCountries) {
       setCountries([{ name: "World" }, ...receivedCountries]);
@@ -63,7 +67,7 @@ const Situation = () => {
     const dataXRange = d3.extent(situations, d => Date.parse(d.timeStamp));
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(situations, d => +d.activeCase)])
+      .domain([0, d3.max(situations, d => +d[selectedItem])])
       .nice()
       .range([height - margin, margin]);
 
@@ -94,26 +98,13 @@ const Situation = () => {
       .attr("y", d => yScale(d.activeCase))
       .attr("height", d => yScale(0) - yScale(+d.activeCase));*/
 
-    const activeCaseLine = d3
+    const line = d3
       .line()
+      .curve(d3.curveBasis)
       .x((d, idx) => xScale(Date.parse(d.timeStamp)))
       .y(function(d) {
-        return yScale(+d.activeCase);
+        return yScale(+d[selectedItem]);
       });
-
-    const deathLine = d3
-      .line()
-      .x((d, idx) => xScale(Date.parse(d.timeStamp)))
-      .y(function(d) {
-        return yScale(+d.totalDeaths);
-      });
-    /*svg
-      .append("path")
-      .datum(situations)
-      .attr("fill", "none")
-      .attr("stroke", "#001f3f")
-      .attr("stroke-width", 1.5)
-      .attr("d", line);*/
 
     svg
       .append("path")
@@ -121,7 +112,7 @@ const Situation = () => {
       .attr("fill", "none")
       .attr("stroke", "#001f3f")
       .attr("stroke-width", 1.5)
-      .attr("d", activeCaseLine);
+      .attr("d", line);
 
     svg
       .selectAll("circle")
@@ -133,7 +124,7 @@ const Situation = () => {
         return xScale(Date.parse(d.timeStamp));
       })
       .attr("cy", function(d) {
-        return yScale(d.activeCase);
+        return yScale(d[selectedItem]);
       })
       .attr("r", function(d, i) {
         return 4.5;
@@ -157,10 +148,10 @@ const Situation = () => {
           .attr("font-weight", "bold")
           .attr("fill", "#001f3f")
           .text(function(d, i) {
-            return d.activeCase.toLocaleString();
+            return d[selectedItem] ? d[selectedItem].toLocaleString() : "";
           })
           .attr("y", function(d) {
-            return yScale(d.activeCase) - 10;
+            return yScale(d[selectedItem]) - 10;
           })
           .attr("x", function(d) {
             return xScale(Date.parse(d.timeStamp));
@@ -184,7 +175,7 @@ const Situation = () => {
         return xScale(Date.parse(d.timeStamp));
       })
       .attr("cy", function(d) {
-        return yScale(d.activeCase);
+        return yScale(d[selectedItem]);
       })
       .attr("r", function(d, i) {
         return 4.5;
@@ -208,10 +199,10 @@ const Situation = () => {
           .attr("font-weight", "bold")
           .attr("fill", "#001f3f")
           .text(function(d, i) {
-            return d.activeCase.toLocaleString();
+            return d[selectedItem] ? d[selectedItem].toLocaleString() : "";
           })
           .attr("y", function(d) {
-            return yScale(d.activeCase) - 10;
+            return yScale(d[selectedItem]) - 10;
           })
           .attr("x", function(d) {
             return xScale(Date.parse(d.timeStamp));
@@ -273,7 +264,7 @@ const Situation = () => {
       .attr("font-size", 20)
       .attr("font-weight", "bold");
 
-    d3.select("svg")
+    /*d3.select("svg")
       .append("text")
       .classed("title", true)
       .attr("transform", `translate(${width / 2},${margin + padding / 6})`)
@@ -281,7 +272,7 @@ const Situation = () => {
       .style("font-weight", "bold")
       .style("font-size", "20")
       .style("fill", "black")
-      .text("Number of active cases over time");
+      .text("Number of active cases over time");*/
 
     return () => {
       const svg = d3.select("svg");
@@ -298,9 +289,12 @@ const Situation = () => {
     setSelectedCountry(event.target.value);
   }
 
+  function handleSelectionItemChange(event) {
+    setSelectedItem(event.target.value);
+  }
+
   return (
     <div>
-      <svg fill="red" className="graph" width={width} height={height} />
       <div className="countrySelection">
         <label>Select country : </label>
         <select id="selection" onChange={handleSelectionChange}>
@@ -308,7 +302,15 @@ const Situation = () => {
             <option value={country.name}>{country.name}</option>
           ))}
         </select>
+        <label>Select data : </label>
+        <select onChange={handleSelectionItemChange}>
+          {items.map(item => (
+            <option value={item}>{item}</option>
+          ))}
+        </select>
       </div>
+      <svg fill="red" className="graph" width={width} height={height} />
+
       <p>
         This vizualization is based on public data from the{" "}
         <a href="https://www.who.int/">World Health Organization</a>
