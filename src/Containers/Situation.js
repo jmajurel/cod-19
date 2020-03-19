@@ -298,14 +298,18 @@ const Situation = () => {
       <div className="countrySelection">
         <label>Select country : </label>
         <select id="selection" onChange={handleSelectionChange}>
-          {countries.map(country => (
-            <option value={country.name}>{country.name}</option>
+          {countries.map((country, idx) => (
+            <option key={idx} value={country.name}>
+              {country.name}
+            </option>
           ))}
         </select>
         <label>Select data : </label>
         <select onChange={handleSelectionItemChange}>
-          {items.map(item => (
-            <option value={item}>{item}</option>
+          {items.map((item, idx) => (
+            <option key={idx} value={item}>
+              {item}
+            </option>
           ))}
         </select>
       </div>
