@@ -205,7 +205,6 @@ const Situation = () => {
         This vizualization is based on public data from the{" "}
         <a href="https://www.who.int/">World Health Organization</a>
       </p>
-      <p>{Object.keys(process.env).join(" ")}</p>
     </div>
   );
 };
