@@ -20,7 +20,11 @@ const PotentialSickCase = () => (
       contact with others.
     </p>
     <p>
-      If possible, please wear a medical mask 😷 especially if you are coughing
+      If possible, please wear a medical mask{" "}
+      <span role="img" aria-label="face mask">
+        😷
+      </span>{" "}
+      especially if you are coughing
     </p>
   </div>
 );

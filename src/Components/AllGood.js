@@ -7,7 +7,12 @@ const AllGood = () => (
         <i class="fas fa-clipboard-list" />
         Result
       </h2>
-      <p>Based on your screening result, you are fine 👍</p>
+      <p>
+        Based on your screening result, you are fine{" "}
+        <span aria-label="thumb up" role="img">
+          👍
+        </span>
+      </p>
       <p>
         However, we advice you to be extremely carreful as the virus is still
         present

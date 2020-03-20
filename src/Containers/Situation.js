@@ -36,7 +36,7 @@ const Situation = () => {
       );
       setSituations([...newSituations]);
     }
-    if (selectedCountry == "World") {
+    if (selectedCountry === "World") {
       situationService
         .getAllGlobalSituations()
         .then(handleSituationsChange)
@@ -52,8 +52,8 @@ const Situation = () => {
   useEffect(() => {
     const margin = 10;
     const padding = width * 0.06;
-    const barPadding = 5;
-    const barWidth = width / situations.length - barPadding;
+    //const barPadding = 5;
+    //const barWidth = width / situations.length - barPadding;
     // format the data
     const svg = d3
       .select("svg.graph")

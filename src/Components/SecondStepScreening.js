@@ -18,7 +18,6 @@ const SecondStepScreening = ({ onSubmit }) => {
     for (let i = 0; i < options.length; i++) {
       if (options[i].selected) selectedConditions.push(options[i].value);
     }
-    console.log(selectedConditions);
     setConditions(selectedConditions);
   }
 

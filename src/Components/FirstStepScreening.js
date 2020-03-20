@@ -11,7 +11,6 @@ class FirstStepScreening extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log("form submited: ", this.state);
     this.props.onSubmit(this.state.symptoms);
   };
 
@@ -39,7 +38,10 @@ class FirstStepScreening extends React.Component {
           <h3>Choose your symptoms (if any):</h3>
           <ul className="symptoms">
             <li>
-              <span role="img">🤒</span> Fever
+              <span aria-label="fever" role="img">
+                🤒
+              </span>{" "}
+              Fever
               <input
                 className="symptom"
                 type="checkbox"
@@ -49,7 +51,10 @@ class FirstStepScreening extends React.Component {
               />
             </li>
             <li>
-              <span role="img">😫</span> Tiredness
+              <span aria-label="tired" role="img">
+                😫
+              </span>{" "}
+              Tiredness
               <input
                 className="symptom"
                 type="checkbox"
@@ -59,7 +64,10 @@ class FirstStepScreening extends React.Component {
               />
             </li>
             <li>
-              <span role="img">🤯</span> Headache
+              <span aria-label="headache" role="img">
+                🤯
+              </span>{" "}
+              Headache
               <input
                 className="symptom"
                 type="checkbox"
@@ -69,7 +77,10 @@ class FirstStepScreening extends React.Component {
               />
             </li>
             <li>
-              <span role="img">😤</span> Breathing issue
+              <span aria-label="breathing issue" role="img">
+                😤
+              </span>{" "}
+              Breathing issue
               <input
                 className="symptom"
                 type="checkbox"
@@ -79,7 +90,10 @@ class FirstStepScreening extends React.Component {
               />
             </li>
             <li>
-              <span role="img">🤧</span> Coughing/sore throat
+              <span aria-label="cough sore throat" role="img">
+                🤧
+              </span>{" "}
+              Coughing/sore throat
               <input
                 className="symptom"
                 type="checkbox"
