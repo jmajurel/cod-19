@@ -8,7 +8,7 @@ const Footer = () => (
     </p>
     <p>
       This website has been created by JF MAJUREL using public information in
-      the aim of fighting CODIV-19
+      the aim of fighting COVID-19
     </p>
     <div className="contacts">
       <a

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import situationService from "../Services/situationService";
 import countryService from "../Services/countryService";
-
+import GraphSelector from "../Components/GraphSelector";
 import * as d3 from "d3";
 
 import "./Situation.css";
@@ -296,27 +296,21 @@ const Situation = () => {
   return (
     <div>
       <div className="countrySelection">
-        <label>Select country : </label>
-        <select id="selection" onChange={handleSelectionChange}>
-          {countries.map((country, idx) => (
-            <option key={idx} value={country.name}>
-              {country.name}
-            </option>
-          ))}
-        </select>
-        <label>Select data : </label>
-        <select onChange={handleSelectionItemChange}>
-          {items.map((item, idx) => (
-            <option key={idx} value={item}>
-              {item}
-            </option>
-          ))}
-        </select>
+        <GraphSelector
+          label="Select Country :"
+          options={countries.map(country => country.name)}
+          handleChange={handleSelectionChange}
+        />
+        <GraphSelector
+          label="Select data :"
+          options={items}
+          handleChange={handleSelectionItemChange}
+        />
       </div>
       <svg fill="red" className="graph" width={width} height={height} />
 
       <p>
-        This vizualization is based on public data from the{" "}
+        This vizualization is based on public data from the
         <a href="https://www.who.int/">World Health Organization</a>
       </p>
     </div>
