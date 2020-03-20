@@ -3,12 +3,13 @@ import situationService from "../Services/situationService";
 import countryService from "../Services/countryService";
 import GraphSelector from "../Components/GraphSelector";
 import * as d3 from "d3";
+import Loader from "../Components/Loader";
 
 import "./Situation.css";
 
 const Situation = () => {
   const items = ["activeCase", "newCase", "totalDeaths", "newDeaths"];
-
+  const [isLoading, setIsLoading] = useState(true);
   const [situations, setSituations] = useState([]);
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("World");
@@ -17,6 +18,7 @@ const Situation = () => {
   const width = 800;
   const height = 450;
   useEffect(() => {
+    setIsLoading(true);
     function handleCountriesChange(receivedCountries) {
       setCountries([{ name: "World" }, ...receivedCountries]);
     }
@@ -26,10 +28,12 @@ const Situation = () => {
         countries.filter(country => country.situations.length > 0)
       )
       .then(handleCountriesChange)
+      .then(() => setIsLoading(false))
       .catch(err => console.log("error: " + err));
   }, []);
 
   useEffect(() => {
+    setIsLoading(true);
     function handleSituationsChange(newSituations) {
       newSituations = newSituations.sort((a, b) =>
         d3.ascending(a.timeStamp, b.timeStamp)
@@ -40,11 +44,13 @@ const Situation = () => {
       situationService
         .getAllGlobalSituations()
         .then(handleSituationsChange)
+        .then(() => setIsLoading(false))
         .catch(err => console.log("error: " + err));
     } else {
       countryService
         .getSituationByCountry(selectedCountry)
         .then(handleSituationsChange)
+        .then(() => setIsLoading(false))
         .catch(err => console.log("error: " + err));
     }
   }, [selectedCountry]);
@@ -308,10 +314,10 @@ const Situation = () => {
         />
       </div>
       <svg fill="red" className="graph" width={width} height={height} />
-
+      {isLoading && <Loader />}
       <p>
         This vizualization is based on public data from the
-        <a href="https://www.who.int/">World Health Organization</a>
+        <a href="https://www.who.int/"> World Health Organization</a>
       </p>
     </div>
   );

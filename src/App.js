@@ -11,6 +11,7 @@ import Footer from "./Components/Footer";
 export default function App() {
   return (
     <div className="App">
+      <div className="background"></div>
       <BrowserRouter>
         <NavBar />
         <Switch>
