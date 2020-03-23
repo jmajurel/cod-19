@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./SecondStepScreening.css";
 
-const SecondStepScreening = ({ onSubmit }) => {
+const SecondStepScreening = ({ onSubmit, preConditions }) => {
   const [gender, setGender] = useState("men");
   const [age, setAge] = useState();
   const [conditions, setConditions] = useState([]);
@@ -47,15 +47,12 @@ const SecondStepScreening = ({ onSubmit }) => {
             </label>
             <select multiple id="conditions" onChange={handleConditionUpdate}>
               <option value="">None</option>
-              <option value="cardiovascularDisease">
-                Cardiovascular disease
-              </option>
-              <option value="diabetes">Diabetes</option>
-              <option value="chronicRespiratoryDisease">
-                Chronic respiratory disease
-              </option>
-              <option value="hypertension">Hypertension</option>
-              <option value="cancer">Cancer</option>
+              {preConditions &&
+                preConditions.map(precondition => (
+                  <option key={precondition._id} value={precondition.name}>
+                    {precondition.name}
+                  </option>
+                ))}
             </select>
           </li>
           <li className="formItem">

@@ -4,7 +4,7 @@ const AllGood = () => (
   <div className="card allGood">
     <div>
       <h2>
-        <i class="fas fa-clipboard-list" />
+        <i className="fas fa-clipboard-list" />
         Result
       </h2>
       <p>

@@ -1,26 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, useHistory, useRouteMatch } from "react-router-dom";
 import { getAllSymptoms } from "../Services/Health/symptomService";
+import { getAllConditions } from "../Services/Health/conditionService";
 import FirstStepScreening from "../Components/FirstStepScreening";
 import SecondStepScreening from "../Components/SecondStepScreening";
 import PotentialSickCase from "../Components/PotentialSickCase";
 
 import AllGood from "../Components/AllGood";
+import Loader from "../Components/Loader";
 
 const Screening = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [symptoms, setSymptoms] = useState([]);
+  const [preConditions, setPreConditions] = useState([]);
   const [selectedSymptoms, setselectedSymptoms] = useState([]);
   const [info, setInfo] = useState({});
   let history = useHistory();
   let { path } = useRouteMatch();
 
   useEffect(() => {
-    getAllSymptoms()
-      .then(res => {
-        console.log(res);
-        setSymptoms(res);
+    setIsLoading(true);
+
+    Promise.all([getAllSymptoms(), getAllConditions()])
+      .then(results => {
+        setSymptoms(results[0]);
+        setPreConditions(results[1]);
       })
-      .catch(err => console.error(err));
+      .then(() => setIsLoading(false))
+      .catch(console.error);
   }, []);
 
   function handleSubmit(newSymptoms) {
@@ -29,19 +36,23 @@ const Screening = () => {
   }
   function handleStepTwo(info) {
     setInfo(info);
-    symptoms.length > 0
+    selectedSymptoms.length > 0
       ? history.push(`${path}/potential`)
       : history.push(`${path}/allGood`);
   }
   return (
     <div>
+      {isLoading && <Loader />}
       <Switch>
         <Route exact path={`${path}`}>
-          <FirstStepScreening onSubmit={handleSubmit} />
+          <FirstStepScreening symptoms={symptoms} onSubmit={handleSubmit} />
         </Route>
 
         <Route path={`${path}/secondStep`}>
-          <SecondStepScreening onSubmit={handleStepTwo} />
+          <SecondStepScreening
+            preConditions={preConditions}
+            onSubmit={handleStepTwo}
+          />
         </Route>
 
         <Route path={`${path}/potential`}>
