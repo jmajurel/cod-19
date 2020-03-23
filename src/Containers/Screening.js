@@ -41,9 +41,10 @@ const Screening = () => {
       : history.push(`${path}/allGood`);
   }
   return (
-    !isLoading && (
-      <div>
-        {isLoading && <Loader />}
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
         <Switch>
           <Route exact path={`${path}`}>
             <FirstStepScreening symptoms={symptoms} onSubmit={handleSubmit} />
@@ -64,8 +65,8 @@ const Screening = () => {
             <AllGood />
           </Route>
         </Switch>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 

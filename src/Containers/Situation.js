@@ -300,28 +300,31 @@ const Situation = () => {
   }
 
   return (
-    !isLoading && (
-      <div>
-        <div className="countrySelection">
-          <GraphSelector
-            label="Select Country :"
-            options={countries.map(country => country.name)}
-            handleChange={handleSelectionChange}
-          />
-          <GraphSelector
-            label="Select data :"
-            options={items}
-            handleChange={handleSelectionItemChange}
-          />
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          <div className="countrySelection">
+            <GraphSelector
+              label="Select Country :"
+              options={countries.map(country => country.name)}
+              handleChange={handleSelectionChange}
+            />
+            <GraphSelector
+              label="Select data :"
+              options={items}
+              handleChange={handleSelectionItemChange}
+            />
+          </div>
+          <svg fill="red" className="graph" width={width} height={height} />
+          <p>
+            This vizualization is based on public data from the
+            <a href="https://www.who.int/"> World Health Organization</a>
+          </p>
         </div>
-        <svg fill="red" className="graph" width={width} height={height} />
-        {isLoading && <Loader />}
-        <p>
-          This vizualization is based on public data from the
-          <a href="https://www.who.int/"> World Health Organization</a>
-        </p>
-      </div>
-    )
+      )}
+    </div>
   );
 };
 
