@@ -1,4 +1,4 @@
-import apiCall from "./apiCall";
+import apiCall from "../apiCall";
 
 function getSituationByCountry(countryName) {
   return apiCall(

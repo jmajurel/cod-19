@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Switch, useHistory, useRouteMatch } from "react-router-dom";
+import { getAllSymptoms } from "../Services/Health/symptomService";
 import FirstStepScreening from "../Components/FirstStepScreening";
 import SecondStepScreening from "../Components/SecondStepScreening";
 import PotentialSickCase from "../Components/PotentialSickCase";
@@ -7,17 +8,28 @@ import PotentialSickCase from "../Components/PotentialSickCase";
 import AllGood from "../Components/AllGood";
 
 const Screening = () => {
-  const [symptopms, setSymptopms] = useState([]);
+  const [symptoms, setSymptoms] = useState([]);
+  const [selectedSymptoms, setselectedSymptoms] = useState([]);
   const [info, setInfo] = useState({});
   let history = useHistory();
   let { path } = useRouteMatch();
-  function handleSubmit(newSymptopms) {
-    setSymptopms(newSymptopms);
+
+  useEffect(() => {
+    getAllSymptoms()
+      .then(res => {
+        console.log(res);
+        setSymptoms(res);
+      })
+      .catch(err => console.error(err));
+  }, []);
+
+  function handleSubmit(newSymptoms) {
+    setselectedSymptoms(newSymptoms);
     history.push(`${path}/secondStep`);
   }
   function handleStepTwo(info) {
     setInfo(info);
-    symptopms.length > 0
+    symptoms.length > 0
       ? history.push(`${path}/potential`)
       : history.push(`${path}/allGood`);
   }

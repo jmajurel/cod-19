@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import situationService from "../Services/situationService";
-import countryService from "../Services/countryService";
+import situationService from "../Services/Situation/situationService";
+import countryService from "../Services/Situation/countryService";
 import GraphSelector from "../Components/GraphSelector";
 import * as d3 from "d3";
 import Loader from "../Components/Loader";
