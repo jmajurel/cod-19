@@ -41,29 +41,31 @@ const Screening = () => {
       : history.push(`${path}/allGood`);
   }
   return (
-    <div>
-      {isLoading && <Loader />}
-      <Switch>
-        <Route exact path={`${path}`}>
-          <FirstStepScreening symptoms={symptoms} onSubmit={handleSubmit} />
-        </Route>
+    !isLoading && (
+      <div>
+        {isLoading && <Loader />}
+        <Switch>
+          <Route exact path={`${path}`}>
+            <FirstStepScreening symptoms={symptoms} onSubmit={handleSubmit} />
+          </Route>
 
-        <Route path={`${path}/secondStep`}>
-          <SecondStepScreening
-            preConditions={preConditions}
-            onSubmit={handleStepTwo}
-          />
-        </Route>
+          <Route path={`${path}/secondStep`}>
+            <SecondStepScreening
+              preConditions={preConditions}
+              onSubmit={handleStepTwo}
+            />
+          </Route>
 
-        <Route path={`${path}/potential`}>
-          <PotentialSickCase />
-        </Route>
+          <Route path={`${path}/potential`}>
+            <PotentialSickCase />
+          </Route>
 
-        <Route path={`${path}/allGood`}>
-          <AllGood />
-        </Route>
-      </Switch>
-    </div>
+          <Route path={`${path}/allGood`}>
+            <AllGood />
+          </Route>
+        </Switch>
+      </div>
+    )
   );
 };
 
