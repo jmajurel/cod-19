@@ -14,20 +14,16 @@ const PotentialSickCase = () => {
       <p>{t("potentialSickCase.detail2")}</p>
       <p>{t("potentialSickCase.detail3")}</p>
       <p>
-        In france: <strong>+33 (0) 800 130 000</strong> (please note this number
-        cannot give any medical advice) For medical advice, Call the{" "}
-        <strong>15</strong> or <strong>114</strong>.
+        {t("potentialSickCase.contact.detail1")}: <strong>+33 (0) 800 130 000</strong> {t("potentialSickCase.contact.detail2")}
+        <strong>15</strong> {t("potentialSickCase.contact.detail3")} <strong>114</strong>.
       </p>
+      <p>{t("potentialSickCase.recommentation.limitContact")}</p>
       <p>
-        Secondly, to protect other people please stay at home and limitate any
-        contact with others.
-      </p>
-      <p>
-        If possible, please wear a medical mask{" "}
+      {t("potentialSickCase.recommentation.wearMask1")} 
         <span role="img" aria-label="face mask">
           😷
         </span>{" "}
-        especially if you are coughing
+        {t("potentialSickCase.recommentation.wearMask2")} 
       </p>
     </div>
   );

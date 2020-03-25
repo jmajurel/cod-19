@@ -1,15 +1,14 @@
 import React from "react";
+import {useTranslation} from "react-i18next"
 import "./Footer.css";
-const Footer = () => (
+
+const Footer = () =>  {
+
+  const [t, i18next] = useTranslation();
+  return (
   <div className="footer">
-    <p>
-      Please note this website does not provide any profesional medical advice,
-      contact your local medical autority instead
-    </p>
-    <p>
-      This website has been created by JF MAJUREL using public information in
-      the aim of fighting COVID-19
-    </p>
+    <p>{t('footer.note')}</p>
+    <p>{t('footer.author')}</p>
     <div className="contacts">
       <a
         className="contact"
@@ -22,6 +21,6 @@ const Footer = () => (
       </a>
     </div>
   </div>
-);
+)};
 
 export default Footer;

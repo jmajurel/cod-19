@@ -1,58 +1,56 @@
 import React from "react";
+import { useTranslation } from "react-i18next"
 import "./Protection.css";
 
-const Protection = () => (
+const Protection = () => {
+
+  const [t, i18n] = useTranslation();
+  return (
   <div className="protection card">
-    <h2>Protect yourself and other from COVID-19</h2>
+    <h2>{t('protection.title')}</h2>
     <div className="actions">
       <h3>
-        By doing these actions you participate in limitating the virus speading
-        in our countries and save lives
+        {t("protection.introduction")}
       </h3>
       <ol>
         <li>
-          Wash your hands using soap{" "}
+         {t("protection.actions.handGel1")} {" "}
           <span role="img" aria-label="soap">
             🧼
           </span>
           <span aria-label="hand" role="img">
             👏
           </span>{" "}
-          and/or hydroalcoholic gel{" "}
+          {t("protection.actions.handGel2")}{" "}
           <span aria-label="hydroalcolic gel" role="img">
             🧴
           </span>
         </li>
         <li>
-          When coughing/sneezing{" "}
+        {t("protection.actions.sneezingCoughing1")}{" "}
           <span role="img" aria-label="sneezing/coughing">
             🤧
-          </span>{" "}
-          please do it in a tissue or in elbow
+          </span>{" "}{t("protection.actions.sneezingCoughing2")}
         </li>
-        <li>Use disposable tissue and through it away after usage</li>
+        <li>{t("protection.actions.tissue")}</li>
         <li>
-          Do not shackhand{" "}
+        {t("protection.actions.shackHandHuge1")}{" "}
           <span aria-label="stop" role="img">
             🚫
           </span>
           <span role="img" aria-label="handshack">
             🤝
-          </span>{" "}
-          and avoid huges
+          </span>{" "}{t("protection.actions.shackHandHuge1")}
         </li>
       </ol>
     </div>
 
     <div className="transmission">
-      <h3>How the virus spreads</h3>
-      <p>The CPVID-19 virus mainly spread from splutters</p>
-      <p>
-        It is adviced to keep a distance of 1 meter between people to limit the
-        spreading
-      </p>
+      <h3>{t("protection.transmissions.subTitle")}</h3>
+      <p>{t("protection.transmissions.splutters")}</p>
+      <p>{t("protection.transmissions.distance")}</p>
     </div>
   </div>
-);
+)};
 
 export default Protection;

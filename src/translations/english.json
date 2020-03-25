@@ -5,6 +5,9 @@
       "subTitle": "Keep calm and start the screening process",
       "launchBtn": "Let's do it"
     },
+    "situation": {
+      "note": "This vizualization is based on public data from the"
+    },
     "firstStepScreening": {
       "title": "First Step",
       "subTitle": "Choose your symptoms (if any):",
@@ -23,7 +26,7 @@
         "label": "Do you have any of these medical condition:",
         "option1": "None"
       },
-      "travelLabel": "id you recently stay in any affected area?",
+      "travelLabel": "did you recently stay in any affected area?",
       "nextBtn": "Next"
     },
     "potentialSickCase": {
@@ -31,7 +34,48 @@
       "general": "Based on your screening result, you might have some chance to get it",
       "detail1": "Please keep calm and goes through the following steps",
       "detail2": "Firsly, please do no go straight to your local GP",
-      "detail3": "Contact the free help numbers dedicated to the coronavirus"
+      "detail3": "Contact the free help numbers dedicated to the coronavirus",
+      "contact": {
+        "detail1": "In france",
+        "detail2": "(please note this number cannot give any medical advice) For medical advice, Call the ",
+        "detail3": "or"
+      },
+      "recommentation": {
+        "limitContact": "Secondly, to protect other people please stay at home and limitate any contact with others.",
+        "wearMask1": "If possible, please wear a medical mask",
+        "wearkMask2": "especially if you are coughing"
+      }
+    },
+    "allGood": {
+      "title": "Result",
+      "general": "Based on your screening result, you are fine",
+      "recommentation": {
+        "careful": "However, we advice you to be extremely carreful as the virus is still present"
+      },
+      "linkToProtectionSection1": "Please checkout the",
+      "linkToProtectionSection2": "section to familiarise yourself with the preventive actions"
+    },
+    "protection": {
+      "title": "Protect yourself and other from COVID-19",
+      "introduction": "By doing these actions you participate in limitating the virus speading in our countries and save lives",
+      "actions": {
+        "handGel1": "Wash your hands using soap",
+        "handGel2": "and/or hydroalcoholic gel",
+        "sneezingCoughing1": "When coughing/sneezing",
+        "sneezingCoughing2": "please do it in a tissue or in elbow",
+        "tissue": "Use disposable tissue and through it away after usage",
+        "shackHandHuges1": "Do not shackhand",
+        "shackHandHuges2": "and avoid huges"
+      },
+      "transmissions": {
+        "subTitle": "How the virus spreads",
+        "splutters": "The COVID-19 virus mainly spread from splutters",
+        "distance": "It is adviced to keep a distance of 1 meter between people to limit the spreading"
+      }
+    },
+    "footer": {
+      "note": "Please note this website does not provide any profesional medical advice, contact your local medical autority instead",
+      "author": "This website has been created by JF MAJUREL using public information with the aim of fighting COVID-19"
     }
   }
 }

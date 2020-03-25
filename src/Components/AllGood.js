@@ -1,28 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const AllGood = () => (
+import { useTranslation } from "react-i18next";
+
+const AllGood = () => {
+
+  const [t, i18n] = useTranslation();
+  return(
   <div className="card allGood">
     <div>
       <h2>
         <i className="fas fa-clipboard-list" />
-        Result
+        {t('allGood.title')}
       </h2>
       <p>
-        Based on your screening result, you are fine{" "}
+        {t('allGood.general')}
         <span aria-label="thumb up" role="img">
           👍
         </span>
       </p>
       <p>
-        However, we advice you to be extremely carreful as the virus is still
-        present
+        {t('allGood.recommentation.careful')}
       </p>
       <p>
-        Please checkout the <Link to="/protection">Protection</Link> section to
-        familiarise yourself with the preventive actions
+        {t('allGood.linkToProtectionSection1')} <Link to="/protection">Protection</Link> {t('allGood.linkToProtectionSection2')}
       </p>
     </div>
   </div>
-);
+)};
 
 export default AllGood;

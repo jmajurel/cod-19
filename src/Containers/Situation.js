@@ -3,11 +3,13 @@ import situationService from "../Services/Situation/situationService";
 import countryService from "../Services/Situation/countryService";
 import GraphSelector from "../Components/GraphSelector";
 import * as d3 from "d3";
-import Loader from "../Components/Loader";
+import {useTranslation} from "react-i18next"
 
+import Loader from "../Components/Loader";
 import "./Situation.css";
 
 const Situation = () => {
+  const [t, i18n] = useTranslation();
   const items = ["activeCase", "newCase", "totalDeaths", "newDeaths"];
   const [isLoading, setIsLoading] = useState(true);
   const [situations, setSituations] = useState([]);
@@ -317,7 +319,7 @@ const Situation = () => {
       </div>
       <svg fill="red" className="graph" width={width} height={height} />
       <p>
-        This vizualization is based on public data from the
+        {t('situation.note')}
         <a href="https://www.who.int/"> World Health Organization</a>
       </p>
     </div>

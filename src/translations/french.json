@@ -1,7 +1,81 @@
 {
   "translation": {
     "home": {
-      "title": "Site de depistage du COVID-19"
+      "title": "Depistage du COVID-19",
+      "subTitle": "Gardez votre calme et commencer le dépistage",
+      "launchBtn": "Commencer"
+    },
+    "situation": {
+      "note": "Cette visualisation est basée sur les données publiques venant de"
+    },
+    "firstStepScreening": {
+      "title": "Première étape",
+      "subTitle": "Selectionnez vos symptômes :",
+      "nextBtn": "Suivant"
+    },
+    "secondStepScreening": {
+      "title": "Renseignements",
+      "genderSelection": {
+        "label": " Sexe",
+        "option1": "Homme",
+        "option2": "Femme",
+        "option3": "Autre"
+      },
+      "ageLabel": "Age",
+      "conditionsSelection": {
+        "label": "Selectionnez vos conditions médicales :",
+        "option1": "Aucun"
+      },
+      "travelLabel": "Avez vous récemment été dans une région touchée par le virus?",
+      "nextBtn": "Suivant"
+    },
+    "potentialSickCase": {
+      "title": "Résultat",
+      "general": "Suivant les données que vous avez fourni, vous avez peut être une chance d'avoir contracté le virus",
+      "detail1": "Gardez votre calme et suivez attentivement les étapes suivantes",
+      "detail2": "Premierement, ne vous présentez pas physiquement chez votre médecin",
+      "detail3": "Appelez le numéro gratuit d'aide dédié au coronavirus",
+      "contact": {
+        "detail1": "En France",
+        "detail2": "(Veuillez noter ce numéro ne donne pas d'avis médical sur votre état) For medical advice. Pour avis médical, veuillez contacter votre médecin traitant. En cas de difficultés respiratoires appelez le",
+        "detail3": "ou"
+      },
+      "recommentation": {
+        "limitContact": "Deuxièmement, si vos symptomes ne sont pas considerés comme grave, afin de protèger d'autres personnes veuillez rester à votre domicile et limitez vos contacts.",
+        "wearMask1": "Si disponible, portez un masque médical afin de limiter la transmission du virus",
+        "wearkMask2": "surtout en cas de toux"
+      }
+    },
+    "allGood": {
+      "title": "Résultat",
+      "general": "Suivant les données que vous avez fourni, il semble que vous n'avez pas les symptomes du virus",
+      "recommentation": {
+        "careful": "Cependant, soyez très vigilant le virus est toujours présent"
+      },
+      "linkToProtectionSection1": "Voir ",
+      "linkToProtectionSection2": " pour connaitre les actions préventives pour limiter la propagation du virus"
+    },
+    "protection": {
+      "title": "Vous protegez ainsi que les autres du COVID-19",
+      "introduction": "En effectuant les actions suivants vous participez à limiter de la diffusion du virus dans nos pays, vous sauvez les vies",
+      "actions": {
+        "handGel1": "Lavez vous les mains avec du savon",
+        "handGel2": "et/ou du gel hydroalcolique",
+        "sneezingCoughing1": "Quand vous éternuez ou toussez",
+        "sneezingCoughing2": "utilisez un mouchoir ou dans votre coude",
+        "tissue": "Utiliez un mouchoir jetable à usage unique et jetez le",
+        "shackHandHuges1": "Ne pas serrez la main",
+        "shackHandHuges2": "et évitez les embrassades"
+      },
+      "transmissions": {
+        "subTitle": "Comment le virus se propage",
+        "splutters": "Le virus COVID-19 se diffuse principalement par des postillons",
+        "distance": "Il est fortement recommendé de garder une distance de 1 mètre minimum entre chaque personne pour évider la propagation"
+      }
+    },
+    "footer": {
+      "note": "Ce site web ne donne en aucun cas du diagnostic médicale, veuillez contacter votre médecin traitant",
+      "author": "Ce siteweb a été conçu par JF MAJUREL en utilisant des données publique afin de combattre le virus COVID-19"
     }
   }
 }
