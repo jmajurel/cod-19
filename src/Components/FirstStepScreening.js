@@ -1,11 +1,11 @@
 import React from "react";
+import { withTranslation } from "react-i18next";
 import "./FirstStepScreeming.css";
 
 class FirstStepScreening extends React.Component {
   constructor(props) {
     super(props);
-    const { symptoms } = this.props;
-
+    //const { symptoms, t, i18n } = this.props;
     this.state = {
       selectedSymptoms: []
     };
@@ -49,9 +49,9 @@ class FirstStepScreening extends React.Component {
     };
     return (
       <div className="card firstStepScreening">
-        <h1>First Step </h1>
+        <h1>{this.props.t("firstStepScreening.title")} </h1>
         <form onSubmit={this.handleSubmit}>
-          <h3>Choose your symptoms (if any):</h3>
+          <h3>{this.props.t("firstStepScreening.subTitle")}</h3>
           <ul className="symptoms">
             {this.props.symptoms &&
               this.props.symptoms.map(symptom => (
@@ -70,10 +70,12 @@ class FirstStepScreening extends React.Component {
                 </li>
               ))}
           </ul>
-          <button type="submit">Next</button>
+          <button type="submit">
+            {this.props.t("firstStepScreening.nextBtn")}
+          </button>
         </form>
       </div>
     );
   }
 }
-export default FirstStepScreening;
+export default withTranslation()(FirstStepScreening);

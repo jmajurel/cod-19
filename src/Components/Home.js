@@ -8,10 +8,10 @@ const Home = () => {
   return (
     <div className="home card">
       <div className="cardContent">
-        <h1> {t("moduleB.title")} </h1>
-        <h2>Keep calm and start the screening process</h2>
+        <h1> {t("home.title")} </h1>
+        <h2>{t("home.subTitle")}</h2>
         <Link className="link" to="/screening">
-          Let's do it
+          {t("home.launchBtn")}
           <i className="fas fa-rocket" />
         </Link>
       </div>

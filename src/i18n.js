@@ -2,27 +2,13 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 import LanguageDetector from "i18next-browser-languagedetector";
-
+import frenchTranslation from "./translations/french.json";
+import englishTranslation from "./translations/english.json";
 // the translations
 // (tip move them in a JSON file and import them)
 const resources = {
-  en: {
-    translation: {
-      moduleA: {
-        text: "hello world!"
-      },
-      moduleB: {
-        title: "COVID-19 Screening website"
-      }
-    }
-  },
-  fr: {
-    translation: {
-      moduleB: {
-        title: "Site de depistage du COVID-19"
-      }
-    }
-  }
+  en: englishTranslation,
+  fr: frenchTranslation
 };
 
 i18n

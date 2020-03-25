@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./SecondStepScreening.css";
 
 const SecondStepScreening = ({ onSubmit, preConditions }) => {
+  const [t, i18n] = useTranslation();
   const [gender, setGender] = useState("men");
   const [age, setAge] = useState();
   const [conditions, setConditions] = useState([]);
@@ -23,17 +25,25 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
 
   return (
     <div className="secondStepScreeming card">
-      <h2>Background information</h2>
+      <h2>{t("secondStepScreening.title")}</h2>
       <form onSubmit={handleSubmit}>
         <ul className="formGroup">
           <li className="formItem">
-            <label forhtml="genders">Gender:</label>
+            <label forhtml="genders">
+              {t("secondStepScreening.genderSelection.label")} :
+            </label>
             <select id="genders" onChange={e => setGender(e.target.value)}>
-              <option value="men">Men</option>
-              <option value="woman">Woman</option>
-              <option value="other">Other</option>
+              <option value="men">
+                {t("secondStepScreening.genderSelection.option1")}
+              </option>
+              <option value="woman">
+                {t("secondStepScreening.genderSelection.option2")}
+              </option>
+              <option value="other">
+                {t("secondStepScreening.genderSelection.option3")}
+              </option>
             </select>
-            <label forhtml="age">Age:</label>
+            <label forhtml="age">{t("secondStepScreening.ageLabel")} :</label>
             <input
               id="age"
               type="number"
@@ -43,10 +53,12 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
           </li>
           <li className="formItem">
             <label forhtml="conditions">
-              Do you have any of these medical condition:
+              {t("secondStepScreening.conditionsSelection.label")}
             </label>
             <select multiple id="conditions" onChange={handleConditionUpdate}>
-              <option value="">None</option>
+              <option value="">
+                {t("secondStepScreening.conditionsSelection.option1")}
+              </option>
               {preConditions &&
                 preConditions.map(precondition => (
                   <option key={precondition._id} value={precondition.name}>
@@ -57,7 +69,7 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
           </li>
           <li className="formItem">
             <label forhtml="travel">
-              Did you recently stay in any affected area?
+              {t("secondStepScreening.travelLabel")}
             </label>
             <input
               id="travel"
@@ -67,7 +79,7 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
             />
           </li>
         </ul>
-        <button type="submit">Next</button>
+        <button type="submit">{t("secondStepScreening.nextBtn")}</button>
       </form>
     </div>
   );

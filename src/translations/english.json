@@ -1,0 +1,37 @@
+{
+  "translation": {
+    "home": {
+      "title": "COVID-19 Screening website",
+      "subTitle": "Keep calm and start the screening process",
+      "launchBtn": "Let's do it"
+    },
+    "firstStepScreening": {
+      "title": "First Step",
+      "subTitle": "Choose your symptoms (if any):",
+      "nextBtn": "Next"
+    },
+    "secondStepScreening": {
+      "title": "Background information",
+      "genderSelection": {
+        "label": " Gender",
+        "option1": "men",
+        "option2": "woman",
+        "option3": "other"
+      },
+      "ageLabel": "Age",
+      "conditionsSelection": {
+        "label": "Do you have any of these medical condition:",
+        "option1": "None"
+      },
+      "travelLabel": "id you recently stay in any affected area?",
+      "nextBtn": "Next"
+    },
+    "potentialSickCase": {
+      "title": "Result",
+      "general": "Based on your screening result, you might have some chance to get it",
+      "detail1": "Please keep calm and goes through the following steps",
+      "detail2": "Firsly, please do no go straight to your local GP",
+      "detail3": "Contact the free help numbers dedicated to the coronavirus"
+    }
+  }
+}
