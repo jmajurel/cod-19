@@ -6,7 +6,13 @@
       "launchBtn": "Let's do it"
     },
     "situation": {
-      "note": "This vizualization is based on public data from the"
+      "note": "This vizualization is based on public data from the",
+      "countryLabel": "Select country: ",
+      "dataLabel": "Select data: ",
+      "graph": {
+        "xAxisLabel": "Date",
+        "yAxisLabel": "People"
+      }
     },
     "firstStepScreening": {
       "title": "First Step",
@@ -43,7 +49,7 @@
       "recommentation": {
         "limitContact": "Secondly, to protect other people please stay at home and limitate any contact with others.",
         "wearMask1": "If possible, please wear a medical mask",
-        "wearkMask2": "especially if you are coughing"
+        "wearMask2": "especially if you are coughing"
       }
     },
     "allGood": {

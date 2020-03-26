@@ -14,7 +14,7 @@ const PotentialSickCase = () => {
       <p>{t("potentialSickCase.detail2")}</p>
       <p>{t("potentialSickCase.detail3")}</p>
       <p>
-        {t("potentialSickCase.contact.detail1")}: <strong>+33 (0) 800 130 000</strong> {t("potentialSickCase.contact.detail2")}
+        {t("potentialSickCase.contact.detail1")}: <strong>+33 (0) 800 130 000</strong> {t("potentialSickCase.contact.detail2")} {" "}
         <strong>15</strong> {t("potentialSickCase.contact.detail3")} <strong>114</strong>.
       </p>
       <p>{t("potentialSickCase.recommentation.limitContact")}</p>

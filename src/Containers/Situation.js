@@ -253,7 +253,7 @@ const Situation = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text("Date");
+      .text(t('situation.graph.xAxisLabel'));
 
     d3.select("svg .yAxis")
       .append("text")
@@ -264,7 +264,7 @@ const Situation = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text("People");
+      .text(t('situation.graph.yAxisLabel'));
 
     d3.selectAll("svg text").attr("font-size", 13);
 
@@ -306,13 +306,13 @@ const Situation = () => {
       {isLoading && <Loader />}
       <div className="countrySelection">
         <GraphSelector
-          label="Select Country :"
+          label={t('situation.countryLabel')}
           options={countries.map(country => country.name)}
           handleChange={handleSelectionChange}
           value={selectedCountry}
         />
         <GraphSelector
-          label="Select data :"
+          label={t('situation.dataLabel')}
           options={items}
           handleChange={handleSelectionItemChange}
         />

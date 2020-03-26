@@ -1,12 +1,18 @@
 {
   "translation": {
     "home": {
-      "title": "Depistage du COVID-19",
-      "subTitle": "Gardez votre calme et commencer le dépistage",
+      "title": "Dépistage du COVID-19",
+      "subTitle": "Gardez votre calme et commencez le dépistage",
       "launchBtn": "Commencer"
     },
     "situation": {
-      "note": "Cette visualisation est basée sur les données publiques venant de"
+      "note": "Cette visualisation est basée sur les données publiques venant de",
+      "countryLabel": "Sélectionnez pays: ",
+      "dataLabel": "Sélectionnez data: ",
+      "graph": {
+        "xAxisLabel": "Date",
+        "yAxisLabel": "Personnes"
+      }
     },
     "firstStepScreening": {
       "title": "Première étape",
@@ -26,34 +32,34 @@
         "label": "Selectionnez vos conditions médicales :",
         "option1": "Aucun"
       },
-      "travelLabel": "Avez vous récemment été dans une région touchée par le virus?",
+      "travelLabel": "Avez-vous récemment été dans une région touchée par le virus?",
       "nextBtn": "Suivant"
     },
     "potentialSickCase": {
       "title": "Résultat",
       "general": "Suivant les données que vous avez fourni, vous avez peut être une chance d'avoir contracté le virus",
       "detail1": "Gardez votre calme et suivez attentivement les étapes suivantes",
-      "detail2": "Premierement, ne vous présentez pas physiquement chez votre médecin",
+      "detail2": "Premièrement, ne vous présentez pas physiquement chez votre médecin",
       "detail3": "Appelez le numéro gratuit d'aide dédié au coronavirus",
       "contact": {
         "detail1": "En France",
-        "detail2": "(Veuillez noter ce numéro ne donne pas d'avis médical sur votre état) For medical advice. Pour avis médical, veuillez contacter votre médecin traitant. En cas de difficultés respiratoires appelez le",
+        "detail2": "(Veuillez noter ce numéro ne donne pas d'avis médical sur votre état). Pour avis médical, veuillez contacter votre médecin traitant. En cas de troubles respiratoires appelez le",
         "detail3": "ou"
       },
       "recommentation": {
-        "limitContact": "Deuxièmement, si vos symptomes ne sont pas considerés comme grave, afin de protèger d'autres personnes veuillez rester à votre domicile et limitez vos contacts.",
+        "limitContact": "Deuxièmement, si vos symptômes ne sont pas considerés comme grave, afin de protèger d'autres personnes, veuillez rester à votre domicile et limitez vos contacts.",
         "wearMask1": "Si disponible, portez un masque médical afin de limiter la transmission du virus",
-        "wearkMask2": "surtout en cas de toux"
+        "wearMask2": "surtout en cas de toux"
       }
     },
     "allGood": {
       "title": "Résultat",
-      "general": "Suivant les données que vous avez fourni, il semble que vous n'avez pas les symptomes du virus",
+      "general": "Suivant les données que vous avez fourni, il semble que vous n'avez pas les symptômes du virus",
       "recommentation": {
-        "careful": "Cependant, soyez très vigilant le virus est toujours présent"
+        "careful": "Cependant, soyez très vigilant, le virus est toujours présent"
       },
       "linkToProtectionSection1": "Voir ",
-      "linkToProtectionSection2": " pour connaitre les actions préventives pour limiter la propagation du virus"
+      "linkToProtectionSection2": " pour connaitre les actions préventives afin de limiter la propagation du virus"
     },
     "protection": {
       "title": "Vous protegez ainsi que les autres du COVID-19",
@@ -74,8 +80,8 @@
       }
     },
     "footer": {
-      "note": "Ce site web ne donne en aucun cas du diagnostic médicale, veuillez contacter votre médecin traitant",
-      "author": "Ce siteweb a été conçu par JF MAJUREL en utilisant des données publique afin de combattre le virus COVID-19"
+      "note": "Ce site web ne donne en aucun cas un diagnostic médical professionnel, veuillez contacter votre médecin traitant",
+      "author": "Ce siteweb a été conçu par JF MAJUREL en utilisant des données publiques afin de combattre le virus COVID-19"
     }
   }
 }
