@@ -59,7 +59,9 @@ class FirstStepScreening extends React.Component {
                   <span aria-label={symptom.name} role="img">
                     {smileys[symptom.name] ? smileys[symptom.name] : "😵"}
                   </span>{" "}
-                  {symptom.name}
+                  {symptom.translation
+                    ? symptom.translation[this.props.i18n.language]
+                    : symptom.name}
                   <input
                     className="symptom"
                     type="checkbox"
