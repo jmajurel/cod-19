@@ -70,8 +70,8 @@
         "sneezingCoughing1": "Quand vous éternuez ou toussez",
         "sneezingCoughing2": "utilisez un mouchoir ou dans votre coude",
         "tissue": "Utiliez un mouchoir jetable à usage unique et jetez le",
-        "shackHandHuges1": "Ne pas serrez la main",
-        "shackHandHuges2": "et évitez les embrassades"
+        "shackHandHuge1": "Ne pas serrez la main",
+        "shackHandHuge2": "et évitez les embrassades"
       },
       "transmissions": {
         "subTitle": "Comment le virus se propage",
