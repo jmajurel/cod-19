@@ -70,8 +70,8 @@
         "sneezingCoughing1": "When coughing/sneezing",
         "sneezingCoughing2": "please do it in a tissue or in your elbow",
         "tissue": "Use disposable tissue and throw it away after usage",
-        "shackHandHuges1": "Do not shakehand",
-        "shackHandHuges2": "and avoid hugs"
+        "shackHandHuge1": "Do not shakehand",
+        "shackHandHuge2": "and avoid hugs"
       },
       "transmissions": {
         "subTitle": "How the virus spreads",
