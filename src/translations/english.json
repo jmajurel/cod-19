@@ -62,21 +62,21 @@
       "linkToProtectionSection2": "section to familiarise yourself with the preventive actions"
     },
     "protection": {
-      "title": "Protect yourself and other from COVID-19",
+      "title": "Protect yourself and others from COVID-19",
       "introduction": "By doing these actions you participate in limitating the virus speading in our countries and save lives",
       "actions": {
         "handGel1": "Wash your hands using soap",
         "handGel2": "and/or hydroalcoholic gel",
         "sneezingCoughing1": "When coughing/sneezing",
-        "sneezingCoughing2": "please do it in a tissue or in elbow",
-        "tissue": "Use disposable tissue and through it away after usage",
-        "shackHandHuges1": "Do not shackhand",
-        "shackHandHuges2": "and avoid huges"
+        "sneezingCoughing2": "please do it in a tissue or in your elbow",
+        "tissue": "Use disposable tissue and throw it away after usage",
+        "shackHandHuges1": "Do not shakehand",
+        "shackHandHuges2": "and avoid hugs"
       },
       "transmissions": {
         "subTitle": "How the virus spreads",
-        "splutters": "The COVID-19 virus mainly spread from splutters",
-        "distance": "It is adviced to keep a distance of 1 meter between people to limit the spreading"
+        "splutters": "The COVID-19 virus mainly spreads from splutters",
+        "distance": "It is advised to keep a distance of 1 meter between people to limit the spreading"
       }
     },
     "footer": {

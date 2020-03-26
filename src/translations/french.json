@@ -63,10 +63,10 @@
     },
     "protection": {
       "title": "Vous protegez ainsi que les autres du COVID-19",
-      "introduction": "En effectuant les actions suivants vous participez à limiter de la diffusion du virus dans nos pays, vous sauvez les vies",
+      "introduction": "En effectuant les actions suivantes vous limitez la diffusion du virus dans nos pays, vous sauvez les vies",
       "actions": {
         "handGel1": "Lavez vous les mains avec du savon",
-        "handGel2": "et/ou du gel hydroalcolique",
+        "handGel2": "et/ou du gel hydroalcoolique",
         "sneezingCoughing1": "Quand vous éternuez ou toussez",
         "sneezingCoughing2": "utilisez un mouchoir ou dans votre coude",
         "tissue": "Utiliez un mouchoir jetable à usage unique et jetez le",
