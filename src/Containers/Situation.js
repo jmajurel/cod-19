@@ -3,7 +3,7 @@ import situationService from "../Services/Situation/situationService";
 import countryService from "../Services/Situation/countryService";
 import GraphSelector from "../Components/GraphSelector";
 import * as d3 from "d3";
-import {useTranslation} from "react-i18next"
+import { useTranslation } from "react-i18next";
 
 import Loader from "../Components/Loader";
 import "./Situation.css";
@@ -253,7 +253,7 @@ const Situation = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text(t('situation.graph.xAxisLabel'));
+      .text(t("situation.graph.xAxisLabel"));
 
     d3.select("svg .yAxis")
       .append("text")
@@ -264,7 +264,7 @@ const Situation = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text(t('situation.graph.yAxisLabel'));
+      .text(t("situation.graph.yAxisLabel"));
 
     d3.selectAll("svg text").attr("font-size", 13);
 
@@ -281,6 +281,21 @@ const Situation = () => {
       .style("font-size", "20")
       .style("fill", "black")
       .text("Number of active cases over time");*/
+    const lockdownDate =
+      countries.length &&
+      countries.find(country => country.name === selectedCountry).lockdownDate;
+
+    if (lockdownDate) {
+      svg
+        .append("line")
+        .attr("x1", xScale(Date.parse(lockdownDate))) //<<== change your code here
+        .attr("y1", 0)
+        .attr("x2", xScale(Date.parse(lockdownDate))) //<<== and here
+        .attr("y2", height)
+        .style("stroke-width", 2)
+        .style("stroke", "red")
+        .style("fill", "none");
+    }
 
     return () => {
       const svg = d3.select("svg");
@@ -290,6 +305,8 @@ const Situation = () => {
       svg.selectAll("path").remove();
 
       svg.selectAll("circle").remove();
+
+      svg.selectAll("line").remove();
     };
   });
 
@@ -306,20 +323,20 @@ const Situation = () => {
       {isLoading && <Loader />}
       <div className="countrySelection">
         <GraphSelector
-          label={t('situation.countryLabel')}
+          label={t("situation.countryLabel")}
           options={countries.map(country => country.name)}
           handleChange={handleSelectionChange}
           value={selectedCountry}
         />
         <GraphSelector
-          label={t('situation.dataLabel')}
+          label={t("situation.dataLabel")}
           options={items}
           handleChange={handleSelectionItemChange}
         />
       </div>
       <svg fill="red" className="graph" width={width} height={height} />
       <p>
-        {t('situation.note')}
+        {t("situation.note")}
         <a href="https://www.who.int/"> World Health Organization</a>
       </p>
     </div>
