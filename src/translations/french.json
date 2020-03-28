@@ -11,7 +11,8 @@
       "dataLabel": "Sélectionnez data: ",
       "graph": {
         "xAxisLabel": "Date",
-        "yAxisLabel": "Personnes"
+        "yAxisLabel": "Personnes",
+        "lockdownLabel": "Quarantaine"
       }
     },
     "firstStepScreening": {

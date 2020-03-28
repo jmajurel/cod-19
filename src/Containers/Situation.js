@@ -288,13 +288,23 @@ const Situation = () => {
     if (lockdownDate) {
       svg
         .append("line")
+        .classed("lockdown", true)
         .attr("x1", xScale(Date.parse(lockdownDate))) //<<== change your code here
-        .attr("y1", 0)
+        .attr("y1", margin + padding / 2)
         .attr("x2", xScale(Date.parse(lockdownDate))) //<<== and here
         .attr("y2", height)
         .style("stroke-width", 2)
-        .style("stroke", "red")
+        .style("stroke", "#4A306D")
         .style("fill", "none");
+
+      svg
+        .append("text")
+        .style("text-anchor", "middle")
+        .attr("font-weight", "bold")
+        .attr("fill", "#001f3f")
+        .attr("x", xScale(Date.parse(lockdownDate)))
+        .attr("y", margin)
+        .text(t("situation.graph.lockdownLabel"));
     }
 
     return () => {
