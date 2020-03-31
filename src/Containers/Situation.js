@@ -60,8 +60,8 @@ const Situation = () => {
   useEffect(() => {
     const margin = 10;
     const padding = width * 0.06;
-    //const barPadding = 5;
-    //const barWidth = width / situations.length - barPadding;
+    const barPadding = 5;
+    const barWidth = width / situations.length - barPadding;
     // format the data
     const svg = d3
       .select("svg.graph")
@@ -86,15 +86,17 @@ const Situation = () => {
       .nice();
 
     var yAxis = d3.axisLeft().scale(yScale);
-    const daysInterval = selectedCountry === "World" ? 5 : 2;
+    //const daysInterval = selectedCountry === "World" ? 5 : 2;
+    const daysInterval = 1 / situations.length;
     var xAxis = d3
       .axisBottom(xScale)
+      //.nice()
       .ticks(d3.timeDay.every(daysInterval))
       .tickFormat(d3.timeFormat("%b %d, %Y"))
       .tickSizeInner(5)
       .tickSizeOuter(5);
 
-    /*svg
+    svg
       .append("g")
       .attr("fill", "purple")
       .selectAll("rect")
@@ -103,12 +105,44 @@ const Situation = () => {
       .append("rect")
       .attr("x", (d, idx) => xScale(Date.parse(d.timeStamp)))
       .attr("width", barWidth)
-      .attr("y", d => yScale(d.activeCase))
-      .attr("height", d => yScale(0) - yScale(+d.activeCase));*/
+      .attr("y", d => yScale(+d[selectedItem]))
+      .attr("height", d => yScale(0) - yScale(+d[selectedItem]))
+      .on("mouseover touchenter", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .style("opacity", "0.8");
+
+        svg
+          .selectAll("#tooltip")
+          .data([d])
+          .enter()
+          .append("text")
+          .attr("id", "tooltip")
+          .attr("font-weight", "bold")
+          .attr("fill", "#001f3f")
+          .text(function(d, i) {
+            return d[selectedItem] ? d[selectedItem].toLocaleString() : "";
+          })
+          .attr("y", function(d) {
+            return yScale(d[selectedItem]) - 10;
+          })
+          .attr("x", function(d) {
+            return xScale(Date.parse(d.timeStamp));
+          });
+      })
+      .on("mouseout touchleave", function(d) {
+        d3.select(this)
+          .transition()
+          .duration(200)
+          .style("opacity", "1");
+
+        d3.select("#tooltip").remove();
+      });
 
     const line = d3
       .line()
-      .curve(d3.curveBasis)
+      .curve(d3.curveNatural)
       .x((d, idx) => xScale(Date.parse(d.timeStamp)))
       .y(function(d) {
         return yScale(+d[selectedItem]);
@@ -119,10 +153,10 @@ const Situation = () => {
       .datum(situations)
       .attr("fill", "none")
       .attr("stroke", "#001f3f")
-      .attr("stroke-width", 1.5)
+      .attr("stroke-width", 3)
       .attr("d", line);
 
-    svg
+    /*svg
       .selectAll("circle")
       .data(situations)
       .enter()
@@ -132,7 +166,7 @@ const Situation = () => {
         return xScale(Date.parse(d.timeStamp));
       })
       .attr("cy", function(d) {
-        return yScale(d[selectedItem]);
+        return yScale(d[selectedItem] ? d[selectedItem] : null);
       })
       .attr("r", function(d, i) {
         return 4.5;
@@ -140,8 +174,8 @@ const Situation = () => {
       .attr("id", function(d) {
         return d.id;
       })
-      .style("fill", "#001f3f")
-      .on("mouseover touchenter", function(d) {
+      .style("fill", "#001f3f");*/
+    /*.on("mouseover touchenter", function(d) {
         d3.select(this)
           .transition()
           .duration(200)
@@ -224,7 +258,7 @@ const Situation = () => {
 
         d3.select("#tooltip").remove();
       });
-
+*/
     svg
       .append("g")
       .classed("xAxis", true)
@@ -315,7 +349,7 @@ const Situation = () => {
       svg.selectAll("path").remove();
 
       svg.selectAll("circle").remove();
-
+      svg.selectAll("rect").remove();
       svg.selectAll("line").remove();
     };
   });
