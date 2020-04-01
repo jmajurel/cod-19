@@ -82,7 +82,8 @@
     },
     "footer": {
       "note": "Ce site web ne donne en aucun cas un diagnostic médical professionnel, veuillez contacter votre médecin traitant",
-      "author": "Ce siteweb a été conçu par JF MAJUREL en utilisant des données publiques afin de combattre le virus COVID-19"
+      "author": "Ce siteweb a été conçu par JF MAJUREL en utilisant des données publiques afin de combattre le virus COVID-19",
+      "bckImgCredit": "Photo prise par Roman Kraft sur Unsplash"
     }
   }
 }

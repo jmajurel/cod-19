@@ -82,7 +82,8 @@
     },
     "footer": {
       "note": "Please note this website does not provide any profesional medical advice, contact your local medical autority instead",
-      "author": "This website has been created by JF MAJUREL using public information with the aim of fighting COVID-19"
+      "author": "This website has been created by JF MAJUREL using public information with the aim of fighting COVID-19",
+      "bckImgCredit": "Photo by Roman Kraft on Unsplash"
     }
   }
 }
