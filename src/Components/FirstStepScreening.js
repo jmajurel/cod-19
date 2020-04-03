@@ -66,7 +66,7 @@ class FirstStepScreening extends React.Component {
                     className="symptom"
                     type="checkbox"
                     name={symptom.name}
-                    value={symptom.name}
+                    value={symptom._id}
                     onChange={this.handleChange}
                   />
                 </li>

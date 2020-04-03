@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Route, Switch, useHistory, useRouteMatch } from "react-router-dom";
 import { getAllSymptoms } from "../Services/Health/symptomService";
 import { getAllConditions } from "../Services/Health/conditionService";
+import { postPatient } from "../Services/Patient/patientService";
 import FirstStepScreening from "../Components/FirstStepScreening";
 import SecondStepScreening from "../Components/SecondStepScreening";
 import PotentialSickCase from "../Components/PotentialSickCase";
@@ -36,6 +37,10 @@ const Screening = () => {
   }
   function handleStepTwo(info) {
     setInfo(info);
+    postPatient({
+      ...info,
+      symptoms: [...selectedSymptoms]
+    });
     selectedSymptoms.length > 0
       ? history.push(`${path}/potential`)
       : history.push(`${path}/allGood`);

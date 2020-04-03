@@ -61,7 +61,7 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
               </option>
               {preConditions &&
                 preConditions.map(precondition => (
-                  <option key={precondition._id} value={precondition.name}>
+                  <option key={precondition._id} value={precondition._id}>
                     {precondition.translation
                       ? precondition.translation[i18n.language]
                       : precondition.value}
