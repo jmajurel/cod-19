@@ -7,6 +7,8 @@ import Home from "./Components/Home";
 import Protection from "./Components/Protection";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
+import Callback from "./Auth/Callback";
+
 import i18n from "i18next";
 
 export default function App() {
@@ -29,6 +31,7 @@ export default function App() {
           <Route path="/situation">
             <Situation />
           </Route>
+          <Route exact path="/callback" component={Callback} />
         </Switch>
         <Footer />
       </BrowserRouter>

@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "auth0-js": "^9.13.1",
     "d3": "5.15.0",
     "i18next": "^19.3.3",
     "i18next-browser-languagedetector": "^4.0.2",
