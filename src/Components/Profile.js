@@ -1,7 +1,8 @@
 import React from "react";
 import "./Profile.css";
+import { getAllSpecialities } from "../Services/GP/specialityService";
 
-const Profile = ({ profile }) => {
+const Profile = ({ profile, specialities }) => {
   /*if(auth0Client.isAuthenticated()){
     this.history.push(["/lo"])
   }*/
@@ -21,6 +22,18 @@ const Profile = ({ profile }) => {
         <div className="formGroup">
           <label>LastName: </label>
           <input name="lastName" type="text" value={profile.lastName} />
+        </div>
+
+        <div className="formGroup">
+          <label>Speciality: </label>
+          <select onChange={null}>
+            {specialities.map((speciality) => (
+              <option key={speciality._id} value={speciality._id}>
+                {speciality.name}
+              </option>
+            ))}
+          </select>
+          <input name="speciality" type="text" value={profile.lastName} />
         </div>
       </form>
     </div>

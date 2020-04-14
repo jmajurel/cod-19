@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Screening from "./Containers/Screening";
@@ -11,12 +11,17 @@ import Callback from "./Auth/Callback";
 import Profile from "./Components/Profile";
 import auth0Client from "./Auth/Auth";
 import i18n from "i18next";
+import { getAllSpecialities } from "./Services/GP/specialityService";
 
 export default function App() {
   const [profile, setProfile] = useState({});
+  const [specialities, setSpecialities] = useState([]);
   function handleConnexion(profile) {
     setProfile(profile);
   }
+  useEffect(async () => {
+    setSpecialities(await getAllSpecialities());
+  }, []);
   i18n.changeLanguage(navigator.language.split("-")[0]);
   return (
     <div className="App">
@@ -40,7 +45,7 @@ export default function App() {
             <Callback onFinalPhase={handleConnexion} />
           </Route>
           <Route path="/profile">
-            <Profile profile={profile} />
+            <Profile profile={profile} specialities={specialities} />
           </Route>
         </Switch>
         <Footer />
