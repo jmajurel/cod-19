@@ -70,8 +70,8 @@ ul {
   margin: 0 auto;
   margin-top: 7%;
   padding: 3rem;
-  max-width: 60vw;
-  min-width: 60vw;
+  max-width: 60%;
+  min-width: 60%;
   min-height: 50vh;
   backdrop-filter: blur(20px) brightness(120%);
   box-shadow: 1rem 1rem 3rem rgba(255, 255, 255, 0.562);

@@ -31,6 +31,9 @@ class Auth {
     return new Date().getTime() < this.expiresAt;
   }
 
+  isNewAccount = () =>
+    this.profile["http://cod-19-dev.herokuapp.com/newAccount"];
+
   signIn() {
     this.auth0.authorize();
   }

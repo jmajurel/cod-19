@@ -10,38 +10,53 @@ const NavBar = () => {
     history.replace("/");
   };
   return (
-    <ul className="navBar">
-      <li className="navItem">
-        <Link className="link-nav" to="/home">
-          <i className="fas fa-home" />
-        </Link>
-      </li>
-      <li className="navItem">
-        <Link className="link-nav" to="/protection">
-          Protection
-        </Link>
-      </li>
-      <li className="navItem">
-        <Link className="link-nav" to="/situation">
-          Situation
-        </Link>
-      </li>
+    <div className="navBar">
+      <ul className="navBarMenu">
+        <li className="navItem">
+          <Link className="link-nav" to="/home">
+            <i className="fas fa-home" />
+          </Link>
+        </li>
+        <li className="navItem">
+          <Link className="link-nav" to="/protection">
+            Protection
+          </Link>
+        </li>
+        <li className="navItem">
+          <Link className="link-nav" to="/situation">
+            Situation
+          </Link>
+        </li>
+      </ul>
       {!auth0Client.isAuthenticated() && (
-        <button onClick={auth0Client.signIn}>Sign In</button>
+        <ul className="navBarAuth">
+          <li className="navItem">
+            <a className="link-nav" onClick={auth0Client.signIn}>
+              Sign In
+            </a>
+          </li>
+        </ul>
       )}
       {auth0Client.isAuthenticated() && (
-        <div>
-          <label>{auth0Client.getProfile().name}</label>
-          <button
-            onClick={() => {
-              signOut();
-            }}
-          >
-            Sign Out
-          </button>
-        </div>
+        <ul className="navBarAuth">
+          <li className="navItem">
+            <Link className="link-nav" to="/profile">
+              <div className="avatar"></div>
+            </Link>
+          </li>
+          <li className="navItem">
+            <a
+              className="link-nav"
+              onClick={() => {
+                signOut();
+              }}
+            >
+              Sign Out
+            </a>
+          </li>
+        </ul>
       )}
-    </ul>
+    </div>
   );
 };
 

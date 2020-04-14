@@ -1,8 +1,18 @@
 .navBar {
-  width: 100vw;
+  min-width: 100%;
+  max-width: 100%;
   display: flex;
   margin: 0;
-  padding: 1.5rem;
+  padding: 1.5rem 0;
+  justify-content: space-between;
+}
+.navBar .navBarMenu {
+  text-decoration: none;
+  display: flex;
+}
+.navBar .navBarAuth {
+  text-decoration: none;
+  display: flex;
 }
 
 .navBar .navItem .link-nav {
@@ -12,7 +22,18 @@
   font-size: 1.3em;
   text-decoration: none;
   padding-right: 1rem;
+  cursor: pointer;
 }
 .navBar .navItem {
   font-weight: 600;
+}
+.avatar {
+  margin-right: 15px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-image: url("/defaultAvatar.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
