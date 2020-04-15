@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Address from "./Address";
+
 import "./Profile.css";
 
 const Profile = ({ existingProfile, specialities, onSubmit }) => {
   const [firstName, setFirstName] = useState(existingProfile.firstName);
   const [lastName, setLastName] = useState(existingProfile.lastName);
+  const [address, setAddress] = useState(existingProfile.address);
   let history = useHistory();
 
   function handleSubmit(event) {
@@ -57,7 +60,7 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
               ))}
           </select>
         </div>
-
+        <Address address={address} />
         <button type="submit">Save</button>
       </form>
     </div>
