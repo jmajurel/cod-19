@@ -32,7 +32,7 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
             <label forhtml="genders">
               {t("secondStepScreening.genderSelection.label")} :
             </label>
-            <select id="genders" onChange={e => setGender(e.target.value)}>
+            <select id="genders" onChange={(e) => setGender(e.target.value)}>
               <option value="men">
                 {t("secondStepScreening.genderSelection.option1")}
               </option>
@@ -48,7 +48,7 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
               id="age"
               type="number"
               min="0"
-              onChange={e => setAge(e.target.value)}
+              onChange={(e) => setAge(e.target.value)}
             />
           </li>
           <li className="formItem">
@@ -60,7 +60,7 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
                 {t("secondStepScreening.conditionsSelection.option1")}
               </option>
               {preConditions &&
-                preConditions.map(precondition => (
+                preConditions.map((precondition) => (
                   <option key={precondition._id} value={precondition._id}>
                     {precondition.translation
                       ? precondition.translation[i18n.language]
@@ -77,7 +77,7 @@ const SecondStepScreening = ({ onSubmit, preConditions }) => {
               id="travel"
               type="checkbox"
               name="travel"
-              onChange={e => setTravel(e.target.checked)}
+              onChange={(e) => setTravel(e.target.checked)}
             />
           </li>
         </ul>

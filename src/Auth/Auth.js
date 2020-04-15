@@ -32,7 +32,7 @@ class Auth {
   }
 
   isNewAccount = () =>
-    this.profile["http://cod-19-dev.herokuapp.com/newAccount"];
+    this.profile[`${process.env.REACT_APP_BASE_URL}/newAccount`];
 
   signIn() {
     this.auth0.authorize();

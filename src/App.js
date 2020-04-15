@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./styles.css";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import Screening from "./Containers/Screening";
 import Situation from "./Containers/Situation";
 import Home from "./Components/Home";
@@ -9,19 +9,54 @@ import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import Callback from "./Auth/Callback";
 import Profile from "./Components/Profile";
-import auth0Client from "./Auth/Auth";
+import SecuredRoute from "./Auth/SecuredRoute";
 import i18n from "i18next";
 import { getAllSpecialities } from "./Services/GP/specialityService";
+import {
+  getProfileByEmail,
+  createProfile,
+  updateProfile,
+} from "./Services/GP/profileService";
+import auth0Client from "./Auth/Auth";
 
 export default function App() {
   const [profile, setProfile] = useState({});
+  const [auth0Profile, setAuth0Profile] = useState({});
   const [specialities, setSpecialities] = useState([]);
-  function handleConnexion(profile) {
-    setProfile(profile);
+  const isInitialMount = useRef(true);
+
+  function handleConnexion(auth0Profile) {
+    setAuth0Profile(auth0Profile);
   }
-  useEffect(async () => {
-    setSpecialities(await getAllSpecialities());
+
+  function handleProfileSubmittion(newProfile) {
+    try {
+      if (auth0Client.isNewAccount()) {
+        createProfile(newProfile).then(setProfile);
+      } else {
+        updateProfile(profile._id, { ...newProfile }).then(() =>
+          setProfile({ ...profile, ...newProfile })
+        );
+      }
+    } catch (err) {
+      console.err(err);
+    }
+  }
+
+  useEffect(() => {
+    if (isInitialMount.current) isInitialMount.current = false;
+    else {
+      getProfileByEmail(auth0Profile.name).then((gpProfile) => {
+        if (!gpProfile) setProfile({ email: auth0Profile.name });
+        else setProfile(gpProfile);
+      });
+    }
+  }, [auth0Profile]);
+
+  useEffect(() => {
+    getAllSpecialities().then(setSpecialities);
   }, []);
+
   i18n.changeLanguage(navigator.language.split("-")[0]);
   return (
     <div className="App">
@@ -44,9 +79,15 @@ export default function App() {
           <Route exact path="/callback">
             <Callback onFinalPhase={handleConnexion} />
           </Route>
-          <Route path="/profile">
-            <Profile profile={profile} specialities={specialities} />
-          </Route>
+          <SecuredRoute
+            path="/profile"
+            component={Profile}
+            componentProps={{
+              existingProfile: profile,
+              specialities,
+              onSubmit: handleProfileSubmittion,
+            }}
+          />
         </Switch>
         <Footer />
       </BrowserRouter>

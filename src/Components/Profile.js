@@ -1,40 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./Profile.css";
-import { getAllSpecialities } from "../Services/GP/specialityService";
 
-const Profile = ({ profile, specialities }) => {
-  /*if(auth0Client.isAuthenticated()){
-    this.history.push(["/lo"])
-  }*/
+const Profile = ({ existingProfile, specialities, onSubmit }) => {
+  const [firstName, setFirstName] = useState(existingProfile.firstName);
+  const [lastName, setLastName] = useState(existingProfile.lastName);
+  let history = useHistory();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    onSubmit({ email: existingProfile.email, firstName, lastName });
+    history.push("/home");
+  }
+
   return (
     <div className="profile">
       <h2>My Profile</h2>
-      <form className="" onSubmit={null}>
+      <form className="" onSubmit={handleSubmit}>
         <div className="formGroup">
           <label>Email: </label>
-          <input name="email" type="text" value={profile.name} />
+          <input
+            disabled
+            name="email"
+            type="text"
+            value={existingProfile.email}
+          />
         </div>
         <div className="formGroup">
-          <label>FistName: </label>
-          <input name="firstName" type="text" value={profile.firstName} />
+          <label>Fist name: </label>
+          <input
+            name="firstName"
+            type="text"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
         </div>
 
         <div className="formGroup">
-          <label>LastName: </label>
-          <input name="lastName" type="text" value={profile.lastName} />
+          <label>Last name: </label>
+          <input
+            name="lastName"
+            type="text"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </div>
 
         <div className="formGroup">
           <label>Speciality: </label>
           <select onChange={null}>
-            {specialities.map((speciality) => (
-              <option key={speciality._id} value={speciality._id}>
-                {speciality.name}
-              </option>
-            ))}
+            {specialities &&
+              specialities.map((speciality) => (
+                <option key={speciality._id} value={speciality._id}>
+                  {speciality.name}
+                </option>
+              ))}
           </select>
-          <input name="speciality" type="text" value={profile.lastName} />
         </div>
+
+        <button type="submit">Save</button>
       </form>
     </div>
   );

@@ -5,6 +5,7 @@
   margin: 0;
   padding: 1.5rem 0;
   justify-content: space-between;
+  font-size: 0.8rem;
 }
 .navBar .navBarMenu {
   text-decoration: none;
