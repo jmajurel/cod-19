@@ -30,16 +30,12 @@ export default function App() {
   }
 
   function handleProfileSubmittion(newProfile) {
-    try {
-      if (auth0Client.isNewAccount()) {
-        createProfile(newProfile).then(setProfile);
-      } else {
-        updateProfile(profile._id, { ...newProfile }).then(() =>
-          setProfile({ ...profile, ...newProfile })
-        );
-      }
-    } catch (err) {
-      console.err(err);
+    setProfile({ ...newProfile, _id: profile._id });
+
+    if (auth0Client.isNewAccount()) {
+      createProfile(newProfile).then(setProfile);
+    } else {
+      updateProfile(profile._id, { ...newProfile });
     }
   }
 

@@ -3,4 +3,24 @@
 }
 .profile label {
   display: block;
+  margin-bottom: 0.3rem;
+}
+
+.profile input {
+  border: none;
+  width: 20%;
+  outline: none;
+  padding: 0.6rem;
+  border-radius: 5px;
+}
+.profile .profileImg {
+  margin: 0 5rem;
+  position: absolute;
+  width: 16vw;
+  height: 16vw;
+  border-radius: 50%;
+  background-image: url("/defaultAvatar.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
