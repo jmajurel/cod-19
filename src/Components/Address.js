@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import Profile from "./Profile";
 
 const Address = ({ existingAddress, onChange }) => {
-  if (!existingAddress) existingAddress = {};
+  if (!existingAddress || existingAddress == {})
+    existingAddress = {
+      address1: "",
+      address2: "",
+      city: "",
+      postCode: "",
+      state: "",
+      country: "",
+    };
   const [address, setAddress] = useState(existingAddress);
 
   function handleOnChange() {

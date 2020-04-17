@@ -5,8 +5,12 @@ import Address from "./Address";
 import "./Profile.css";
 
 const Profile = ({ existingProfile, specialities, onSubmit }) => {
-  const [firstName, setFirstName] = useState(existingProfile.firstName);
-  const [lastName, setLastName] = useState(existingProfile.lastName);
+  const [firstName, setFirstName] = useState(
+    existingProfile.firstName ? existingProfile.firstName : ""
+  );
+  const [lastName, setLastName] = useState(
+    existingProfile.lastName ? existingProfile.lastName : ""
+  );
   const [speciality, setSpeciality] = useState(
     existingProfile.speciality ? existingProfile.speciality._id : undefined
   );

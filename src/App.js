@@ -28,10 +28,17 @@ export default function App() {
 
   function handleConnexion(auth0Profile) {
     setAuth0Profile(auth0Profile);
-    setIsNewAccount(auth0Client.isNewAccount());
+    if (!auth0Client.isNewAccount()) {
+      getProfileByEmail(auth0Profile.name).then((gpProfile) => {
+        if (!gpProfile) setProfile({ email: auth0Profile.name });
+        else setProfile(gpProfile);
+      });
+    } else {
+      setProfile({ email: auth0Profile.name });
+    }
   }
 
-  function handleProfileSubmittion(newProfile) {
+  function handleProfileSubmition(newProfile) {
     setProfile({
       ...newProfile,
       _id: profile._id,
@@ -48,17 +55,6 @@ export default function App() {
       });
     }
   }
-
-  useEffect(() => {
-    if (!isNewAccount) {
-      getProfileByEmail(auth0Profile.name).then((gpProfile) => {
-        if (!gpProfile) setProfile({ email: auth0Profile.name });
-        else setProfile(gpProfile);
-      });
-    } else {
-      setProfile({ email: auth0Profile.name });
-    }
-  }, [auth0Profile]);
 
   useEffect(() => {
     getAllSpecialities().then(setSpecialities);
@@ -92,7 +88,7 @@ export default function App() {
             componentProps={{
               existingProfile: profile,
               specialities,
-              onSubmit: handleProfileSubmittion,
+              onSubmit: handleProfileSubmition,
             }}
           />
         </Switch>
