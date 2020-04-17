@@ -27,6 +27,13 @@ const NavBar = () => {
             Situation
           </Link>
         </li>
+        {auth0Client.isAuthenticated() && (
+          <li className="navItem">
+            <Link className="link-nav" to="/patients">
+              Patients
+            </Link>
+          </li>
+        )}
       </ul>
       {!auth0Client.isAuthenticated() && (
         <ul className="navBarAuth">

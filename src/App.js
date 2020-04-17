@@ -3,6 +3,7 @@ import "./styles.css";
 import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import Screening from "./Containers/Screening";
 import Situation from "./Containers/Situation";
+import Patients from "./Containers/Patients";
 import Home from "./Components/Home";
 import Protection from "./Components/Protection";
 import NavBar from "./Components/NavBar";
@@ -91,6 +92,7 @@ export default function App() {
               onSubmit: handleProfileSubmition,
             }}
           />
+          <SecuredRoute path="/patients" component={Patients} />
         </Switch>
         <Footer />
       </BrowserRouter>
