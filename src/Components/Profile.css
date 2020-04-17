@@ -6,7 +6,8 @@
   margin-bottom: 0.3rem;
 }
 
-.profile input {
+.profile input,
+.profile select {
   border: none;
   width: 20%;
   outline: none;

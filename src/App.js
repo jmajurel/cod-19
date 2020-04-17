@@ -23,29 +23,40 @@ export default function App() {
   const [profile, setProfile] = useState({});
   const [auth0Profile, setAuth0Profile] = useState({});
   const [specialities, setSpecialities] = useState([]);
+  const [isNewAccount, setIsNewAccount] = useState(false);
   const isInitialMount = useRef(true);
 
   function handleConnexion(auth0Profile) {
     setAuth0Profile(auth0Profile);
+    setIsNewAccount(auth0Client.isNewAccount());
   }
 
   function handleProfileSubmittion(newProfile) {
-    setProfile({ ...newProfile, _id: profile._id });
+    setProfile({
+      ...newProfile,
+      _id: profile._id,
+      speciality: specialities.find((x) => x._id === newProfile.specialityId),
+    });
 
     if (auth0Client.isNewAccount()) {
+      setIsNewAccount(true);
       createProfile(newProfile).then(setProfile);
     } else {
-      updateProfile(profile._id, { ...newProfile });
+      setIsNewAccount(false);
+      updateProfile(profile._id, {
+        ...newProfile,
+      });
     }
   }
 
   useEffect(() => {
-    if (isInitialMount.current) isInitialMount.current = false;
-    else {
+    if (!isNewAccount) {
       getProfileByEmail(auth0Profile.name).then((gpProfile) => {
         if (!gpProfile) setProfile({ email: auth0Profile.name });
         else setProfile(gpProfile);
       });
+    } else {
+      setProfile({ email: auth0Profile.name });
     }
   }, [auth0Profile]);
 

@@ -7,10 +7,9 @@ import "./Profile.css";
 const Profile = ({ existingProfile, specialities, onSubmit }) => {
   const [firstName, setFirstName] = useState(existingProfile.firstName);
   const [lastName, setLastName] = useState(existingProfile.lastName);
-  const [speciality, setSpeciality] = useState({
-    id: existingProfile.speciality,
-    data: specialities.find((x) => x._id === existingProfile.speciality),
-  });
+  const [speciality, setSpeciality] = useState(
+    existingProfile.speciality ? existingProfile.speciality._id : undefined
+  );
   const [address, setAddress] = useState(existingProfile.address);
   let history = useHistory();
 
@@ -21,7 +20,7 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
       firstName,
       lastName,
       address,
-      speciality: speciality.id,
+      specialityId: speciality,
     });
     history.push("/home");
   }
@@ -32,10 +31,7 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
 
   function handleSpecialityChange(event) {
     const selectedSpeciality = event.target.value;
-    setSpeciality({
-      id: selectedSpeciality,
-      data: specialities.find((x) => x._id === selectedSpeciality),
-    });
+    setSpeciality(selectedSpeciality);
   }
 
   return (
@@ -74,7 +70,7 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
 
         <div className="formGroup">
           <label>Speciality: </label>
-          <select value={speciality.id} onChange={handleSpecialityChange}>
+          <select value={speciality} onChange={handleSpecialityChange}>
             {specialities &&
               specialities.map((speciality) => (
                 <option key={speciality._id} value={speciality._id}>
@@ -83,7 +79,7 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
               ))}
           </select>
         </div>
-        <Address address={address} onChange={handleAddressChange} />
+        <Address existingAddress={address} onChange={handleAddressChange} />
         <button type="submit">Save</button>
       </form>
     </div>

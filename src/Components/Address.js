@@ -1,17 +1,12 @@
 import React, { useState } from "react";
+import Profile from "./Profile";
 
-const Address = ({ address, onChange }) => {
-  if (!address) address = {};
-
-  const [address1, setAddress1] = useState(address.address1);
-  const [address2, setAddress2] = useState(address.address2);
-  const [city, setCity] = useState(address.city);
-  const [postCode, setPostCode] = useState(address.postCode);
-  const [state, setState] = useState(address.state);
-  const [country, setCountry] = useState(address.country);
+const Address = ({ existingAddress, onChange }) => {
+  if (!existingAddress) existingAddress = {};
+  const [address, setAddress] = useState(existingAddress);
 
   function handleOnChange() {
-    onChange({ address1, address2, city, postCode, state, country });
+    onChange(address);
   }
 
   return (
@@ -20,10 +15,10 @@ const Address = ({ address, onChange }) => {
         <label>Address: </label>
         <input
           type="text"
-          value={address1}
+          value={address.address1}
           onChange={(e) => {
-            setAddress1(e.target.value);
-            handleOnChange();
+            setAddress({ ...address, address1: e.target.value });
+            onChange({ ...address, address1: e.target.value });
           }}
         />
       </div>
@@ -31,10 +26,10 @@ const Address = ({ address, onChange }) => {
         <label>Address Details: </label>
         <input
           type="text"
-          value={address2}
+          value={address.address2}
           onChange={(e) => {
-            setAddress2(e.target.value);
-            handleOnChange();
+            setAddress({ ...address, address2: e.target.value });
+            onChange({ ...address, address2: e.target.value });
           }}
         />
       </div>
@@ -42,10 +37,10 @@ const Address = ({ address, onChange }) => {
         <label>City: </label>
         <input
           type="text"
-          value={city}
+          value={address.city}
           onChange={(e) => {
-            setCity(e.target.value);
-            handleOnChange();
+            setAddress({ ...address, city: e.target.value });
+            onChange({ ...address, city: e.target.value });
           }}
         />
       </div>
@@ -53,10 +48,10 @@ const Address = ({ address, onChange }) => {
         <label>Postcode: </label>
         <input
           type="text"
-          value={postCode}
+          value={address.postCode}
           onChange={(e) => {
-            setPostCode(e.target.value);
-            handleOnChange();
+            setAddress({ ...address, postCode: e.target.value });
+            onChange({ ...address, postCode: e.target.value });
           }}
         />
       </div>
@@ -64,10 +59,10 @@ const Address = ({ address, onChange }) => {
         <label>State: </label>
         <input
           type="text"
-          value={state}
+          value={address.state}
           onChange={(e) => {
-            setState(e.target.value);
-            handleOnChange();
+            setAddress({ ...address, state: e.target.value });
+            onChange({ ...address, state: e.target.value });
           }}
         />
       </div>
@@ -76,10 +71,10 @@ const Address = ({ address, onChange }) => {
         <label>Country: </label>
         <input
           type="text"
-          value={country}
+          value={address.country}
           onChange={(e) => {
-            setCountry(e.target.value);
-            handleOnChange();
+            setAddress({ ...address, country: e.target.value });
+            onChange({ ...address, country: e.target.value });
           }}
         />
       </div>
