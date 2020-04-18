@@ -26,12 +26,12 @@ const Situation = () => {
     }
     countryService
       .getAllCountries()
-      .then(countries =>
-        countries.filter(country => country.situations.length > 0)
+      .then((countries) =>
+        countries.filter((country) => country.situations.length > 0)
       )
       .then(handleCountriesChange)
       .then(() => setIsLoading(false))
-      .catch(err => console.log("error: " + err));
+      .catch((err) => console.log("error: " + err));
   }, []);
 
   useEffect(() => {
@@ -47,13 +47,13 @@ const Situation = () => {
         .getAllGlobalSituations()
         .then(handleSituationsChange)
         .then(() => setIsLoading(false))
-        .catch(err => console.log("error: " + err));
+        .catch((err) => console.log("error: " + err));
     } else {
       countryService
         .getSituationByCountry(selectedCountry)
         .then(handleSituationsChange)
         .then(() => setIsLoading(false))
-        .catch(err => console.log("error: " + err));
+        .catch((err) => console.log("error: " + err));
     }
   }, [selectedCountry]);
 
@@ -69,13 +69,13 @@ const Situation = () => {
         0,
         -(padding / 2),
         width - padding * 2,
-        height + padding * 2
+        height + padding * 2,
       ]);
 
-    const dataXRange = d3.extent(situations, d => Date.parse(d.timeStamp));
+    const dataXRange = d3.extent(situations, (d) => Date.parse(d.timeStamp));
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(situations, d => +d[selectedItem])])
+      .domain([0, d3.max(situations, (d) => +d[selectedItem])])
       .nice()
       .range([height - margin, margin]);
 
@@ -105,13 +105,10 @@ const Situation = () => {
       .append("rect")
       .attr("x", (d, idx) => xScale(Date.parse(d.timeStamp)))
       .attr("width", barWidth)
-      .attr("y", d => yScale(+d[selectedItem]))
-      .attr("height", d => yScale(0) - yScale(+d[selectedItem]))
-      .on("mouseover touchenter", function(d) {
-        d3.select(this)
-          .transition()
-          .duration(200)
-          .style("opacity", "0.8");
+      .attr("y", (d) => yScale(+d[selectedItem]))
+      .attr("height", (d) => yScale(0) - yScale(+d[selectedItem]))
+      .on("mouseover touchenter", function (d) {
+        d3.select(this).transition().duration(200).style("opacity", "0.8");
 
         svg
           .selectAll("#tooltip")
@@ -121,21 +118,18 @@ const Situation = () => {
           .attr("id", "tooltip")
           .attr("font-weight", "bold")
           .attr("fill", "#001f3f")
-          .text(function(d, i) {
+          .text(function (d, i) {
             return d[selectedItem] ? d[selectedItem].toLocaleString() : "";
           })
-          .attr("y", function(d) {
+          .attr("y", function (d) {
             return yScale(d[selectedItem]) - 10;
           })
-          .attr("x", function(d) {
+          .attr("x", function (d) {
             return xScale(Date.parse(d.timeStamp));
           });
       })
-      .on("mouseout touchleave", function(d) {
-        d3.select(this)
-          .transition()
-          .duration(200)
-          .style("opacity", "1");
+      .on("mouseout touchleave", function (d) {
+        d3.select(this).transition().duration(200).style("opacity", "1");
 
         d3.select("#tooltip").remove();
       });
@@ -144,7 +138,7 @@ const Situation = () => {
       .line()
       .curve(d3.curveNatural)
       .x((d, idx) => xScale(Date.parse(d.timeStamp)))
-      .y(function(d) {
+      .y(function (d) {
         return yScale(+d[selectedItem]);
       });
 
@@ -317,7 +311,8 @@ const Situation = () => {
       .text("Number of active cases over time");*/
     const lockdownDate =
       countries.length &&
-      countries.find(country => country.name === selectedCountry).lockdownDate;
+      countries.find((country) => country.name === selectedCountry)
+        .lockdownDate;
 
     if (lockdownDate) {
       svg
@@ -368,7 +363,7 @@ const Situation = () => {
       <div className="countrySelection">
         <GraphSelector
           label={t("situation.countryLabel")}
-          options={countries.map(country => country.name)}
+          options={countries.map((country) => country.name)}
           handleChange={handleSelectionChange}
           value={selectedCountry}
         />

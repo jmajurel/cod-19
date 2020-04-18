@@ -21,20 +21,27 @@ const Patients = () => {
     setIsLoading(true);
     Promise.all([getAllPatient(), getAllSymptoms()])
       .then((results) => {
-        console.log(results);
         setPatients(results[0]);
-        setSymptoms(results[1].map((res) => res.name));
-
+        const rawSymptoms = results[1];
+        const hashSymptomps = {};
+        for (let i = 0; i < rawSymptoms.length; i++)
+          hashSymptomps[rawSymptoms[i]._id] = rawSymptoms[i];
+        setSymptoms(hashSymptomps);
         return results[0];
       })
       .then((rawPatientsData) => {
-        const data = rawPatientsData.reduce((acc, curr) => {
+        let data = rawPatientsData.reduce((acc, curr) => {
           for (let i = 0; i < curr.symptoms.length; i++)
             acc[curr.symptoms[i]]
               ? acc[curr.symptoms[i]]++
               : (acc[curr.symptoms[i]] = 1);
           return acc;
         }, {});
+        let label;
+        data = Object.entries(data).map((entry) => {
+          label = symptoms[entry[0]] ? symptoms[entry[0]] : "unknown";
+          return { label, value: entry[1] };
+        });
 
         setGraphData(data);
       })
@@ -45,8 +52,8 @@ const Patients = () => {
   useEffect(() => {
     const margin = 10;
     const padding = width * 0.06;
-    const barPadding = 5;
-    const barWidth = width / graphData.length - barPadding;
+    const barPadding = 10;
+    const barWidth = height / graphData.length - barPadding;
     // format the data
     const svg = d3
       .select("svg.graph")
@@ -57,18 +64,83 @@ const Patients = () => {
         height + padding * 2,
       ]);
 
-    /*const dataXRange = d3.extent(graphData, (d) => Date.parse(d.timeStamp));
-    const yScale = d3
-      .scaleLinear()
-      .domain([0, d3.max(situations, (d) => +d[selectedItem])])
-      .nice()
-      .range([height - margin, margin]);
-
-    var xScale = d3
+    const xScale = d3
       .scaleTime()
       .range([margin, width - margin])
-      .domain(dataXRange)
-      .nice();*/
+      .domain([0, d3.max(graphData, (d) => +d.value)])
+      .nice();
+
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, graphData.length])
+      .nice()
+      .range([margin, height - margin]);
+
+    var xAxis = d3
+      .axisBottom()
+      .scale(xScale)
+      .tickFormat(d3.format(".2"))
+      .tickSizeInner(5)
+      .tickSizeOuter(5);
+
+    var yAxis = d3
+      .axisLeft()
+      .scale(yScale)
+      .tickValues([...graphData.map((x) => x.label)])
+      .ticks(graphData.length);
+
+    svg
+      .append("g")
+      .attr("fill", "purple")
+      .selectAll("rect")
+      .data(graphData)
+      .enter()
+      .append("rect")
+      .attr("x", 0)
+      .attr("width", (d) => xScale(+d.value))
+      .attr("y", (d, idx) => yScale(idx))
+      .attr("height", barWidth);
+
+    svg
+      .append("g")
+      .classed("yAxis", true)
+      .attr("transform", `translate(${margin}, ${-margin / 2})`)
+      .call(yAxis);
+
+    svg
+      .append("g")
+      .classed("xAxis", true)
+      .attr("transform", `translate(${0}, ${height - margin} )`)
+      .call(xAxis)
+      .selectAll("text")
+      .attr("x", -30)
+      .attr("transform", "rotate(-40)");
+
+    d3.select("svg .yAxis")
+      .append("text")
+      .classed("axisLabel", true)
+      .attr(
+        "transform",
+        `translate(${-margin - padding * 2}, ${height / 2}) rotate(-90)`
+      )
+      .style("text-anchor", "middle")
+      .style("fill", "black")
+      .text("Symptoms");
+
+    svg
+      .append("text")
+      .classed("axisLabel", true)
+      .attr(
+        "transform",
+        "translate(" +
+          (width / 2 - margin / 2) +
+          " ," +
+          (height + margin * 7) +
+          ")"
+      )
+      .style("text-anchor", "middle")
+      .style("fill", "black")
+      .text("occurrence");
 
     return () => {
       const svg = d3.select("svg");
@@ -86,12 +158,6 @@ const Patients = () => {
   return (
     <div className="patients">
       {isLoading && <Loader />}
-      Hello world Patients {patients.length}
-      <GraphSelector
-        label={"symptoms"}
-        options={symptoms}
-        handleChange={(e) => console.log(e)}
-      />
       <svg fill="red" className="graph" width={width} height={height} />
     </div>
   );
