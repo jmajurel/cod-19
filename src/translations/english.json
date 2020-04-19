@@ -84,6 +84,27 @@
       "note": "Please note this website does not provide any profesional medical advice, contact your local medical autority instead",
       "author": "This website has been created by JF MAJUREL using public information with the aim of fighting COVID-19",
       "bckImgCredit": "Photo by Roman Kraft on Unsplash"
+    },
+    "profile": {
+      "title": "My Profile",
+      "emailLabel": "Email",
+      "firstNameLabel": "First name",
+      "lastNameLabel": "Last name",
+      "specialityLabel": "Medical specialty",
+      "address": {
+        "address1Label": "Address",
+        "address2Label": "Address Details",
+        "cityLabel": "City",
+        "postCodeLabel": "Postcode",
+        "stateLabel": "State",
+        "countryLabel": "Country"
+      },
+      "saveBtn": "Save"
+    },
+    "patients": {
+      "title": "Patients",
+      "xAxisLabel": "Occurrences",
+      "yAxisLabel": "Symptoms"
     }
   }
 }

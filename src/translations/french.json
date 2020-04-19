@@ -84,6 +84,27 @@
       "note": "Ce site web ne donne en aucun cas un diagnostic médical professionnel, veuillez contacter votre médecin traitant",
       "author": "Ce siteweb a été conçu par JF MAJUREL en utilisant des données publiques afin de combattre le virus COVID-19",
       "bckImgCredit": "Photo prise par Roman Kraft sur Unsplash"
+    },
+    "profile": {
+      "title": "Mon Profil",
+      "emailLabel": "Email",
+      "firstNameLabel": "Prénom",
+      "lastNameLabel": "Nom",
+      "specialityLabel": "Spécialité médicale",
+      "address": {
+        "address1Label": "Adresse",
+        "address2Label": "Complément d'adresse",
+        "cityLabel": "Ville",
+        "postCodeLabel": "Code postal",
+        "stateLabel": "Région",
+        "countryLabel": "Pays"
+      },
+      "saveBtn": "Enregistrer"
+    },
+    "patients": {
+      "title": "Patients",
+      "xAxisLabel": "Occurrences",
+      "yAxisLabel": "Symptômes"
     }
   }
 }
