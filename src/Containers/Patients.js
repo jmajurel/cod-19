@@ -4,6 +4,7 @@ import { getAllPatient } from "../Services/Patient/patientService";
 import { getAllSymptoms } from "../Services/Health/symptomService";
 import GraphSelector from "../Components/GraphSelector";
 import Loader from "../Components/Loader";
+import "./Patients.css";
 
 const Patients = () => {
   const [patients, setPatients] = useState([]);
@@ -27,9 +28,9 @@ const Patients = () => {
         for (let i = 0; i < rawSymptoms.length; i++)
           hashSymptomps[rawSymptoms[i]._id] = rawSymptoms[i];
         setSymptoms(hashSymptomps);
-        return results[0];
+        return { rawPatientsData: results[0], hashSymptomps };
       })
-      .then((rawPatientsData) => {
+      .then(({ rawPatientsData, hashSymptomps }) => {
         let data = rawPatientsData.reduce((acc, curr) => {
           for (let i = 0; i < curr.symptoms.length; i++)
             acc[curr.symptoms[i]]
@@ -39,7 +40,9 @@ const Patients = () => {
         }, {});
         let label;
         data = Object.entries(data).map((entry) => {
-          label = symptoms[entry[0]] ? symptoms[entry[0]] : "unknown";
+          label = hashSymptomps[entry[0]]
+            ? hashSymptomps[entry[0]].name
+            : "Unknown";
           return { label, value: entry[1] };
         });
 
@@ -66,7 +69,7 @@ const Patients = () => {
 
     const xScale = d3
       .scaleTime()
-      .range([margin, width - margin])
+      .range([0, width - margin])
       .domain([0, d3.max(graphData, (d) => +d.value)])
       .nice();
 
@@ -76,6 +79,9 @@ const Patients = () => {
       .nice()
       .range([margin, height - margin]);
 
+    var colorScale = d3
+      .scaleOrdinal(d3.schemePastel2)
+      .domain([...graphData.map((x) => x.label)]);
     var xAxis = d3
       .axisBottom()
       .scale(xScale)
@@ -83,23 +89,36 @@ const Patients = () => {
       .tickSizeInner(5)
       .tickSizeOuter(5);
 
-    var yAxis = d3
-      .axisLeft()
-      .scale(yScale)
-      .tickValues([...graphData.map((x) => x.label)])
-      .ticks(graphData.length);
+    var yAxis = d3.axisLeft().scale(yScale).ticks(0);
 
     svg
       .append("g")
-      .attr("fill", "purple")
       .selectAll("rect")
       .data(graphData)
       .enter()
       .append("rect")
-      .attr("x", 0)
+      .attr("fill", (d) => colorScale(d.label))
+      .attr("x", margin)
       .attr("width", (d) => xScale(+d.value))
       .attr("y", (d, idx) => yScale(idx))
-      .attr("height", barWidth);
+      .attr("height", barWidth)
+      .attr("stroke", "black")
+      .attr("stroke-opacity", "0.2");
+
+    svg
+      .append("g")
+      .selectAll("text")
+      .data(graphData)
+      .enter()
+      .append("text")
+      .attr("class", "label")
+      .attr("width", (d) => xScale(+d.value))
+      .attr("height", barWidth)
+      .attr("x", (d) => xScale(+d.value) / 2)
+      .attr("y", (d, idx) => yScale(idx) + barWidth / 2)
+      .style("text-anchor", "middle")
+      .attr("fill", "black")
+      .text((d) => d.label);
 
     svg
       .append("g")
@@ -110,10 +129,10 @@ const Patients = () => {
     svg
       .append("g")
       .classed("xAxis", true)
-      .attr("transform", `translate(${0}, ${height - margin} )`)
+      .attr("transform", `translate(${margin}, ${height - margin} )`)
       .call(xAxis)
       .selectAll("text")
-      .attr("x", -30)
+      .attr("x", -20)
       .attr("transform", "rotate(-40)");
 
     d3.select("svg .yAxis")
@@ -121,7 +140,7 @@ const Patients = () => {
       .classed("axisLabel", true)
       .attr(
         "transform",
-        `translate(${-margin - padding * 2}, ${height / 2}) rotate(-90)`
+        `translate(${-margin - padding}, ${height / 2}) rotate(-90)`
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
@@ -140,7 +159,17 @@ const Patients = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text("occurrence");
+      .text("Occurrence");
+
+    d3.select("svg")
+      .append("text")
+      .classed("title", true)
+      .attr("transform", `translate(${width / 2},${-margin / 2})`)
+      .style("text-anchor", "middle")
+      .style("font-weight", "bold")
+      .style("font-size", "20")
+      .style("fill", "black")
+      .text("Patients");
 
     return () => {
       const svg = d3.select("svg");
