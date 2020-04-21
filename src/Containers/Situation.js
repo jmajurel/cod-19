@@ -16,6 +16,7 @@ const Situation = () => {
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState("World");
   const [selectedItem, setSelectedItem] = useState(items[0]);
+  const [selectedOverPopu, setSelectedOverPopu] = useState(false);
 
   const width = 800;
   const height = 450;
@@ -62,6 +63,7 @@ const Situation = () => {
     const padding = width * 0.06;
     const barPadding = 5;
     const barWidth = width / situations.length - barPadding;
+    const factor = 0;
     // format the data
     const svg = d3
       .select("svg.graph")
@@ -71,7 +73,6 @@ const Situation = () => {
         width - padding * 2,
         height + padding * 2,
       ]);
-
     const dataXRange = d3.extent(situations, (d) => Date.parse(d.timeStamp));
     const yScale = d3
       .scaleLinear()
@@ -347,7 +348,7 @@ const Situation = () => {
       svg.selectAll("rect").remove();
       svg.selectAll("line").remove();
     };
-  });
+  }, [selectedOverPopu]);
 
   function handleSelectionChange(event) {
     setSelectedCountry(event.target.value);
@@ -355,6 +356,10 @@ const Situation = () => {
 
   function handleSelectionItemChange(event) {
     setSelectedItem(event.target.value);
+  }
+
+  function handleSelectionOverPopu(event) {
+    setSelectedOverPopu(event.target.value);
   }
 
   return (
@@ -371,6 +376,12 @@ const Situation = () => {
           label={t("situation.dataLabel")}
           options={items}
           handleChange={handleSelectionItemChange}
+        />
+        <label>Over country population: </label>
+        <input
+          type="checkbox"
+          onChange={handleSelectionOverPopu}
+          value={selectedOverPopu}
         />
       </div>
       <svg fill="red" className="graph" width={width} height={height} />
