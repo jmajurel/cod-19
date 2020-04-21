@@ -1,3 +1,8 @@
 .countrySelection .graphSelector {
   display: inline-block;
 }
+
+.situation .selector {
+  display: inline-block;
+  margin-left: 1rem;
+}

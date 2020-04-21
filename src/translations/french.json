@@ -9,9 +9,11 @@
       "note": "Cette visualisation est basée sur les données publiques venant de",
       "countryLabel": "Sélectionnez pays: ",
       "dataLabel": "Sélectionnez data: ",
+      "populationOption": "Sur la population du pays: ",
       "graph": {
         "xAxisLabel": "Date",
         "yAxisLabel": "Personnes",
+        "yAxisLabelPercentage": "% de la population",
         "lockdownLabel": "Quarantaine"
       }
     },

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 const Address = ({ existingAddress, onChange }) => {
-  if (!existingAddress || existingAddress == {})
+  if (!existingAddress || existingAddress === {})
     existingAddress = {
       address1: "",
       address2: "",
@@ -13,10 +13,6 @@ const Address = ({ existingAddress, onChange }) => {
     };
   const [address, setAddress] = useState(existingAddress);
   const [t, i18n] = useTranslation();
-
-  function handleOnChange() {
-    onChange(address);
-  }
 
   return (
     <div className="address">

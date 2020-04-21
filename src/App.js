@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
-import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Screening from "./Containers/Screening";
 import Situation from "./Containers/Situation";
 import Patients from "./Containers/Patients";
@@ -25,7 +25,6 @@ export default function App() {
   const [auth0Profile, setAuth0Profile] = useState({});
   const [specialities, setSpecialities] = useState([]);
   const [isNewAccount, setIsNewAccount] = useState(false);
-  const isInitialMount = useRef(true);
 
   function handleConnexion(auth0Profile) {
     setAuth0Profile(auth0Profile);

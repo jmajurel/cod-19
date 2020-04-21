@@ -10,13 +10,23 @@ import "./Situation.css";
 
 const Situation = () => {
   const [t, i18n] = useTranslation();
-  const items = ["activeCase", "newCase", "totalDeaths", "newDeaths"];
+  const items = [
+    { name: "activeCase" },
+    { name: "newCase" },
+    { name: "totalDeaths" },
+    { name: "newDeaths" },
+  ];
   const [isLoading, setIsLoading] = useState(true);
   const [situations, setSituations] = useState([]);
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("World");
+  const [selectedCountry, setSelectedCountry] = useState({
+    name: "World",
+    populationNb: 7594270360,
+  });
   const [selectedItem, setSelectedItem] = useState(items[0]);
-  const [selectedOverPopu, setSelectedOverPopu] = useState(false);
+  const [selectedPopulationOption, setSelectedPopulationOption] = useState(
+    false
+  );
 
   const width = 800;
   const height = 450;
@@ -43,7 +53,7 @@ const Situation = () => {
       );
       setSituations([...newSituations]);
     }
-    if (selectedCountry === "World") {
+    if (selectedCountry.name === "World") {
       situationService
         .getAllGlobalSituations()
         .then(handleSituationsChange)
@@ -51,7 +61,7 @@ const Situation = () => {
         .catch((err) => console.log("error: " + err));
     } else {
       countryService
-        .getSituationByCountry(selectedCountry)
+        .getSituationByCountry(selectedCountry.name)
         .then(handleSituationsChange)
         .then(() => setIsLoading(false))
         .catch((err) => console.log("error: " + err));
@@ -63,7 +73,6 @@ const Situation = () => {
     const padding = width * 0.06;
     const barPadding = 5;
     const barWidth = width / situations.length - barPadding;
-    const factor = 0;
     // format the data
     const svg = d3
       .select("svg.graph")
@@ -74,9 +83,12 @@ const Situation = () => {
         height + padding * 2,
       ]);
     const dataXRange = d3.extent(situations, (d) => Date.parse(d.timeStamp));
+    const factor = selectedPopulationOption
+      ? selectedCountry.populationNb / 100
+      : 1;
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(situations, (d) => +d[selectedItem])])
+      .domain([0, d3.max(situations, (d) => +d[selectedItem.name] / factor)])
       .nice()
       .range([height - margin, margin]);
 
@@ -106,8 +118,8 @@ const Situation = () => {
       .append("rect")
       .attr("x", (d, idx) => xScale(Date.parse(d.timeStamp)))
       .attr("width", barWidth)
-      .attr("y", (d) => yScale(+d[selectedItem]))
-      .attr("height", (d) => yScale(0) - yScale(+d[selectedItem]))
+      .attr("y", (d) => yScale(+d[selectedItem.name] / factor))
+      .attr("height", (d) => yScale(0) - yScale(+d[selectedItem.name] / factor))
       .on("mouseover touchenter", function (d) {
         d3.select(this).transition().duration(200).style("opacity", "0.8");
 
@@ -120,10 +132,12 @@ const Situation = () => {
           .attr("font-weight", "bold")
           .attr("fill", "#001f3f")
           .text(function (d, i) {
-            return d[selectedItem] ? d[selectedItem].toLocaleString() : "";
+            return d[selectedItem.name]
+              ? d[selectedItem.name].toLocaleString()
+              : "";
           })
           .attr("y", function (d) {
-            return yScale(d[selectedItem]) - 10;
+            return yScale(d[selectedItem.name] / factor) - 10;
           })
           .attr("x", function (d) {
             return xScale(Date.parse(d.timeStamp));
@@ -140,7 +154,7 @@ const Situation = () => {
       .curve(d3.curveNatural)
       .x((d, idx) => xScale(Date.parse(d.timeStamp)))
       .y(function (d) {
-        return yScale(+d[selectedItem]);
+        return yScale(+d[selectedItem.name] / factor);
       });
 
     svg
@@ -293,7 +307,13 @@ const Situation = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text(t("situation.graph.yAxisLabel"));
+      .text(
+        t(
+          selectedPopulationOption
+            ? "situation.graph.yAxisLabelPercentage"
+            : "situation.graph.yAxisLabel"
+        )
+      );
 
     d3.selectAll("svg text").attr("font-size", 13);
 
@@ -310,18 +330,14 @@ const Situation = () => {
       .style("font-size", "20")
       .style("fill", "black")
       .text("Number of active cases over time");*/
-    const lockdownDate =
-      countries.length &&
-      countries.find((country) => country.name === selectedCountry)
-        .lockdownDate;
 
-    if (lockdownDate) {
+    if (selectedCountry.lockdownDate) {
       svg
         .append("line")
         .classed("lockdown", true)
-        .attr("x1", xScale(Date.parse(lockdownDate))) //<<== change your code here
+        .attr("x1", xScale(Date.parse(selectedCountry.lockdownDate))) //<<== change your code here
         .attr("y1", margin + padding / 2)
-        .attr("x2", xScale(Date.parse(lockdownDate))) //<<== and here
+        .attr("x2", xScale(Date.parse(selectedCountry.lockdownDate))) //<<== and here
         .attr("y2", height)
         .style("stroke-width", 2)
         .style("stroke", "#4A306D")
@@ -332,7 +348,7 @@ const Situation = () => {
         .style("text-anchor", "middle")
         .attr("font-weight", "bold")
         .attr("fill", "#001f3f")
-        .attr("x", xScale(Date.parse(lockdownDate)))
+        .attr("x", xScale(Date.parse(selectedCountry.lockdownDate)))
         .attr("y", margin)
         .text(t("situation.graph.lockdownLabel"));
     }
@@ -348,27 +364,29 @@ const Situation = () => {
       svg.selectAll("rect").remove();
       svg.selectAll("line").remove();
     };
-  }, [selectedOverPopu]);
+  });
 
   function handleSelectionChange(event) {
-    setSelectedCountry(event.target.value);
+    const selectedIndex = event.target.selectedIndex;
+    setSelectedCountry(countries[selectedIndex]);
   }
 
   function handleSelectionItemChange(event) {
-    setSelectedItem(event.target.value);
+    const selectedIndex = event.target.selectedIndex;
+    setSelectedItem(items[selectedIndex]);
   }
 
-  function handleSelectionOverPopu(event) {
-    setSelectedOverPopu(event.target.value);
+  function handleSelectionPopulationOption(event) {
+    setSelectedPopulationOption(event.target.checked);
   }
 
   return (
-    <div>
+    <div className="situation">
       {isLoading && <Loader />}
       <div className="countrySelection">
         <GraphSelector
           label={t("situation.countryLabel")}
-          options={countries.map((country) => country.name)}
+          options={countries}
           handleChange={handleSelectionChange}
           value={selectedCountry}
         />
@@ -377,12 +395,14 @@ const Situation = () => {
           options={items}
           handleChange={handleSelectionItemChange}
         />
-        <label>Over country population: </label>
-        <input
-          type="checkbox"
-          onChange={handleSelectionOverPopu}
-          value={selectedOverPopu}
-        />
+        <div className="selector">
+          <label>{t("situation.populationOption")}</label>
+          <input
+            type="checkbox"
+            onChange={handleSelectionPopulationOption}
+            value={selectedPopulationOption}
+          />
+        </div>
       </div>
       <svg fill="red" className="graph" width={width} height={height} />
       <p>

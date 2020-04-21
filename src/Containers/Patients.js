@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import { useTranslation } from "react-i18next";
 import { getAllPatient } from "../Services/Patient/patientService";
 import { getAllSymptoms } from "../Services/Health/symptomService";
-import GraphSelector from "../Components/GraphSelector";
 import Loader from "../Components/Loader";
 import "./Patients.css";
 
@@ -18,9 +17,6 @@ const Patients = () => {
   const height = 450;
 
   useEffect(() => {
-    function handlePatientsChange(newPatients) {
-      setPatients(newPatients);
-    }
     setIsLoading(true);
     Promise.all([getAllPatient(), getAllSymptoms()])
       .then((results) => {

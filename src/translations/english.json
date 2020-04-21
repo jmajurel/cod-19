@@ -9,9 +9,11 @@
       "note": "This vizualization is based on public data from the",
       "countryLabel": "Select country: ",
       "dataLabel": "Select data: ",
+      "populationOption": "Over country population: ",
       "graph": {
         "xAxisLabel": "Date",
         "yAxisLabel": "People",
+        "yAxisLabelPercentage": "% of the population",
         "lockdownLabel": "Lockdown"
       }
     },
