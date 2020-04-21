@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import * as d3 from "d3";
+import { useTranslation } from "react-i18next";
 import { getAllPatient } from "../Services/Patient/patientService";
 import { getAllSymptoms } from "../Services/Health/symptomService";
 import GraphSelector from "../Components/GraphSelector";
@@ -11,6 +12,7 @@ const Patients = () => {
   const [symptoms, setSymptoms] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [graphData, setGraphData] = useState([]);
+  const [t, i18n] = useTranslation();
 
   const width = 800;
   const height = 450;
@@ -41,7 +43,7 @@ const Patients = () => {
         let label;
         data = Object.entries(data).map((entry) => {
           label = hashSymptomps[entry[0]]
-            ? hashSymptomps[entry[0]].name
+            ? hashSymptomps[entry[0]].translation[i18n.language]
             : "Unknown";
           return { label, value: entry[1] };
         });
@@ -144,7 +146,7 @@ const Patients = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text("Symptoms");
+      .text(t("patients.yAxisLabel"));
 
     svg
       .append("text")
@@ -159,7 +161,7 @@ const Patients = () => {
       )
       .style("text-anchor", "middle")
       .style("fill", "black")
-      .text("Occurrence");
+      .text(t("patients.xAxisLabel"));
 
     d3.select("svg")
       .append("text")
@@ -169,7 +171,7 @@ const Patients = () => {
       .style("font-weight", "bold")
       .style("font-size", "20")
       .style("fill", "black")
-      .text("Patients");
+      .text(t("patients.title"));
 
     return () => {
       const svg = d3.select("svg");

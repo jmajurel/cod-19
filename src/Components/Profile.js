@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Address from "./Address";
+import { useTranslation } from "react-i18next";
 
+import Address from "./Address";
 import "./Profile.css";
 
 const Profile = ({ existingProfile, specialities, onSubmit }) => {
+  const [t, i18n] = useTranslation();
+
   const [firstName, setFirstName] = useState(
     existingProfile.firstName ? existingProfile.firstName : ""
   );
@@ -40,11 +43,11 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
 
   return (
     <div className="profile">
-      <h2>My Profile</h2>
+      <h2>{t("profile.title")}</h2>
       <form onSubmit={handleSubmit}>
         <div className="formGroup profileImg"></div>
         <div className="formGroup">
-          <label>Email: </label>
+          <label>{t("profile.emailLabel")}: </label>
           <input
             disabled
             name="email"
@@ -53,7 +56,7 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
           />
         </div>
         <div className="formGroup">
-          <label>First name: </label>
+          <label>{t("profile.firstNameLabel")}: </label>
           <input
             name="firstName"
             type="text"
@@ -63,7 +66,7 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
         </div>
 
         <div className="formGroup">
-          <label>Last name: </label>
+          <label>{t("profile.lastNameLabel")}: </label>
           <input
             name="lastName"
             type="text"
@@ -73,18 +76,21 @@ const Profile = ({ existingProfile, specialities, onSubmit }) => {
         </div>
 
         <div className="formGroup">
-          <label>Speciality: </label>
+          <label>{t("profile.specialityLabel")}: </label>
           <select value={speciality} onChange={handleSpecialityChange}>
             {specialities &&
               specialities.map((speciality) => (
                 <option key={speciality._id} value={speciality._id}>
-                  {speciality.name}
+                  {speciality.translation &&
+                  speciality.translation[i18n.language]
+                    ? speciality.translation[i18n.language]
+                    : specialities.name}
                 </option>
               ))}
           </select>
         </div>
         <Address existingAddress={address} onChange={handleAddressChange} />
-        <button type="submit">Save</button>
+        <button type="submit">{t("profile.saveBtn")}</button>
       </form>
     </div>
   );

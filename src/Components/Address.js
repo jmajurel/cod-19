@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Profile from "./Profile";
+import { useTranslation } from "react-i18next";
 
 const Address = ({ existingAddress, onChange }) => {
   if (!existingAddress || existingAddress == {})
@@ -12,6 +12,7 @@ const Address = ({ existingAddress, onChange }) => {
       country: "",
     };
   const [address, setAddress] = useState(existingAddress);
+  const [t, i18n] = useTranslation();
 
   function handleOnChange() {
     onChange(address);
@@ -20,7 +21,7 @@ const Address = ({ existingAddress, onChange }) => {
   return (
     <div className="address">
       <div className="formGroup">
-        <label>Address: </label>
+        <label>{t("profile.address.address1Label")}: </label>
         <input
           type="text"
           value={address.address1}
@@ -31,7 +32,7 @@ const Address = ({ existingAddress, onChange }) => {
         />
       </div>
       <div className="formGroup">
-        <label>Address Details: </label>
+        <label>{t("profile.address.address2Label")}: </label>
         <input
           type="text"
           value={address.address2}
@@ -42,7 +43,7 @@ const Address = ({ existingAddress, onChange }) => {
         />
       </div>
       <div className="formGroup">
-        <label>City: </label>
+        <label>{t("profile.address.cityLabel")}: </label>
         <input
           type="text"
           value={address.city}
@@ -53,7 +54,7 @@ const Address = ({ existingAddress, onChange }) => {
         />
       </div>
       <div className="formGroup">
-        <label>Postcode: </label>
+        <label>{t("profile.address.postCodeLabel")}: </label>
         <input
           type="text"
           value={address.postCode}
@@ -64,7 +65,7 @@ const Address = ({ existingAddress, onChange }) => {
         />
       </div>
       <div className="formGroup">
-        <label>State: </label>
+        <label>{t("profile.address.stateLabel")}: </label>
         <input
           type="text"
           value={address.state}
@@ -76,7 +77,7 @@ const Address = ({ existingAddress, onChange }) => {
       </div>
 
       <div className="formGroup">
-        <label>Country: </label>
+        <label>{t("profile.address.countryLabel")}: </label>
         <input
           type="text"
           value={address.country}
