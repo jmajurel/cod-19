@@ -132,9 +132,11 @@ const Situation = () => {
           .attr("font-weight", "bold")
           .attr("fill", "#001f3f")
           .text(function (d, i) {
-            return d[selectedItem.name]
-              ? d[selectedItem.name].toLocaleString()
+            const value = d[selectedItem.name]
+              ? (d[selectedItem.name] / factor).toLocaleString()
               : "";
+
+            return `${value}${value && selectedPopulationOption ? " %" : ""}`;
           })
           .attr("y", function (d) {
             return yScale(d[selectedItem.name] / factor) - 10;
