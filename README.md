@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/jmajurel/cod-19.svg?branch=develop)](https://travis-ci.org/jmajurel/cod-19) [![Maintainability](https://api.codeclimate.com/v1/badges/530dbfeabceefc264570/maintainability)](https://codeclimate.com/github/jmajurel/cod-19/maintainability)

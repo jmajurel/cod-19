@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - 12.16.2
+script:
+  - npm run test
+after_script:
+  - cat ./coverage/lcov.info | coveralls
+deploy:
+  provider: heroku
+  api_key:
+    secure: PcAZmTkPavgTLV55L0n3JrIa4sXqlPM5bSwROQXnPxyXIoxbaEshWJlAalIuRdhKjNmWO63GBnIZH9MKpR59tQKLu9AMWHZBKltLC62u1hbdFWpSi7O4VN6SoW1JMGXiPmJDCBcjhY9N32ti9gY8natk9s1zIRkY+tylBHVhY0/6b4MUAriFnYu1JglwkLPhGPeD6wT4HlAKoEYRLSxn2B305uKdSNUJe/oAwu6yXl1Qjw1nPrG6mzRdksMoQo8UliuOKjdAuvBFdh2NhGSK43oYkNQnqAz5zW+M+J5UHLydWUuoY2tA/psZrvd/JWGC/hkhJT8bqAR1I/KCANDoj3DawXtmf/MZbJ5AaI6pXxEykB8/GthIS4yYc3zDT8iKHSK0uf9MJ7d+OCPqlEjfTIYwvHak6Jm+YbEwP3gvhEq4iZmjSnaUy+2EJI3HGKFg4Ly6qLgctVbsyq+4yNaex+qb4C8q1zOqxOoGpbVbKXFvBSMaRgUjJz0s90fbCrAzdblzCpyQHDWJdL0WxRcea3usQJOJv6Aq72hKQ2p9l9VAi4yrCnRf3Cu8d8QRRKvQFhg6/O63KdykYqUub/Ngj+jaukuZ1nmLQaxMvP+9edtga1z2Q1Uv4h0AG5ImLBPn1jFP3GRajtQZT8dtJZXnNWwSEz81fYZxPEbQML8BAbM=
+  app:
+    develop: cod-19-dev
+    master: cod-19
+notifications:
+  email: false
