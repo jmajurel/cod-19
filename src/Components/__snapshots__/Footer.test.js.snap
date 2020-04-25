@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`display 1`] = `
+<div
+  className="footer"
+>
+  <p>
+    footer.note
+  </p>
+  <p>
+    footer.author
+  </p>
+  <p>
+    footer.bckImgCredit
+  </p>
+  <div
+    className="contacts"
+  >
+    <a
+      className="contact"
+      href="https://www.linkedin.com/in/jean-f%C3%A9lix-majurel-a142235a/"
+    >
+      <i
+        className="fab fa-linkedin"
+      />
+    </a>
+    <a
+      className="contact"
+      href="https://github.com/jmajurel"
+    >
+      <i
+        className="fab fa-github"
+      />
+    </a>
+  </div>
+</div>
+`;

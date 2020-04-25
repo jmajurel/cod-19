@@ -17,6 +17,7 @@
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
+    "react-test-renderer": "^16.13.1",
     "typescript": "3.3.3"
   },
   "scripts": {
