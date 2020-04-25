@@ -1,7 +1,10 @@
 language: node_js
 node_js:
   - 12.16.2
-
+script:
+  - npm run test
+after_script:
+  - cat ./coverage/lcov.info | coveralls
 deploy:
   provider: heroku
   api_key:
