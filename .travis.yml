@@ -4,7 +4,7 @@ node_js:
 script:
   - npm run test
 after_script:
-  - cat lcov.info | coveralls
+  - cat ./coverage/lcov.info | coveralls
 deploy:
   provider: heroku
   api_key:
