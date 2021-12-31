@@ -7,4 +7,4 @@ The app replies to GP needs as well as public people. It is fully translated to 
 
 Tech stack: React App
 
-The app communicates with several APIs that provides data to the interface.
+The app communicates with several APIs (microservices) that provide data to the interface.
