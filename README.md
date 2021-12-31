@@ -3,7 +3,7 @@
 # cod-19
 Covid19 app
 The main goal of the app is to provide useful information about current covid19 situation in world.
-The app replies to GP needs as well as public people. It is fully translated to english and french languages.
+The app replies to GP needs as well as public people. It is fully translated to English and French languages.
 
 Tech stack: React App
 
