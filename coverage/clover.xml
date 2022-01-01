@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1587801233574" clover="3.2.0">
-  <project timestamp="1587801233574" name="All files">
-    <metrics statements="346" coveredstatements="3" conditionals="90" coveredconditionals="0" methods="129" coveredmethods="1" elements="565" coveredelements="4" complexity="0" loc="346" ncloc="346" packages="9" files="29" classes="29"/>
+<coverage generated="1641075063184" clover="3.2.0">
+  <project timestamp="1641075063185" name="All files">
+    <metrics statements="346" coveredstatements="8" conditionals="90" coveredconditionals="4" methods="129" coveredmethods="2" elements="565" coveredelements="14" complexity="0" loc="346" ncloc="346" packages="9" files="29" classes="29"/>
     <package name="src">
       <metrics statements="25" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="0"/>
       <file name="App.js" path="/home/jfmajurel/Documents/cod-19/src/App.js">
@@ -87,14 +87,14 @@
       </file>
     </package>
     <package name="src.Components">
-      <metrics statements="101" coveredstatements="3" conditionals="40" coveredconditionals="0" methods="39" coveredmethods="1"/>
+      <metrics statements="101" coveredstatements="8" conditionals="40" coveredconditionals="4" methods="39" coveredmethods="2"/>
       <file name="Address.js" path="/home/jfmajurel/Documents/cod-19/src/Components/Address.js">
-        <metrics statements="18" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <metrics statements="18" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>

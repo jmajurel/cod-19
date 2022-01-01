@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`display 1`] = `
+<div
+  className="address"
+>
+  <div
+    className="formGroup"
+  >
+    <label>
+      profile.address.address1Label
+      : 
+    </label>
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="formGroup"
+  >
+    <label>
+      profile.address.address2Label
+      : 
+    </label>
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="formGroup"
+  >
+    <label>
+      profile.address.cityLabel
+      : 
+    </label>
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="formGroup"
+  >
+    <label>
+      profile.address.postCodeLabel
+      : 
+    </label>
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="formGroup"
+  >
+    <label>
+      profile.address.stateLabel
+      : 
+    </label>
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="formGroup"
+  >
+    <label>
+      profile.address.countryLabel
+      : 
+    </label>
+    <input
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;
