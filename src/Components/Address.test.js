@@ -1,7 +1,8 @@
 import React from "react";
 import Address from "./Address";
-import renderer from "react-test-renderer";
 import { render, unmountComponentAtNode } from "react-dom";
+import { I18nextProvider } from "react-i18next";
+import i18n from "../i18n";
 import { act } from "react-dom/test-utils";
 
 let container = null;
@@ -18,30 +19,16 @@ afterEach(() => {
   container = null;
 });
 
-jest.mock("react-i18next", () => ({
-  // this mock makes sure any components using the translate hook can use it without a warning being shown
-  useTranslation: () => {
-    return {
-      t: (str) => str,
-      i18n: {
-        changeLanguage: () => new Promise(() => {}),
-      },
-    };
-  },
-}));
-
-test("display", () => {
-  const component = renderer.create(<Address />);
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
 it("renders with an address", () => {
   const mockAddress = { address1: "192 burnaby road" };
   act(() => {
-    render(<Address existingAddress={mockAddress} />, container);
+    render(
+      <I18nextProvider i18n={i18n}>
+        <Address existingAddress={mockAddress} />
+      </I18nextProvider>,
+      container
+    );
   });
-  const label = container.querySelector("label");
-  console.log("label.textContent: ", label.textContent);
-  expect(label.textContent).toContain("Address");
+  const input = container.querySelector("input");
+  expect(input.value).toBe(mockAddress.address1);
 });
