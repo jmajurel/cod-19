@@ -19,11 +19,3 @@ it("displays label", () => {
   const label = container.querySelector("label");
   expect(label.textContent).toMatch(mockLabel);
 });
-
-it("reacts to userEvent", () => {
-  const onChange = jest.fn();
-  const container = document.createElement("div");
-  act(() => {
-    render(<GraphSelector handleChange={onChange} />, container);
-  });
-});
