@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Address from "./Address";
 import "./Profile.css";
 
-const Profile = ({ existingProfile = {}, specialities, onSubmit }) => {
+const Profile = ({ existingProfile, specialities, onSubmit }) => {
   const [t, i18n] = useTranslation();
 
   const [firstName, setFirstName] = useState(
