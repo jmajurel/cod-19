@@ -1,5 +1,5 @@
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\App.js
+SF:/home/jfmajurel/Documents/cod-19/src/App.js
 FN:23,App
 FN:29,handleConnexion
 FN:32,(anonymous_2)
@@ -47,18 +47,18 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\i18n.js
+SF:/home/jfmajurel/Documents/cod-19/src/i18n.js
 FNF:0
 FNH:0
-DA:9,2
-DA:14,2
+DA:9,3
+DA:14,3
 LF:2
 LH:2
 BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\index.js
+SF:/home/jfmajurel/Documents/cod-19/src/index.js
 FNF:0
 FNH:0
 DA:7,0
@@ -69,7 +69,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Auth\Auth.js
+SF:/home/jfmajurel/Documents/cod-19/src/Auth/Auth.js
 FN:4,(anonymous_0)
 FN:22,(anonymous_1)
 FN:26,(anonymous_2)
@@ -129,7 +129,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Auth\Callback.js
+SF:/home/jfmajurel/Documents/cod-19/src/Auth/Callback.js
 FN:6,(anonymous_0)
 FN:14,(anonymous_1)
 FNF:2
@@ -148,7 +148,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Auth\SecuredRoute.js
+SF:/home/jfmajurel/Documents/cod-19/src/Auth/SecuredRoute.js
 FN:5,SecuredRoute
 FN:10,(anonymous_1)
 FNF:2
@@ -169,7 +169,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Address.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/Address.js
 FN:4,(anonymous_0)
 FN:24,(anonymous_1)
 FN:35,(anonymous_2)
@@ -214,7 +214,7 @@ BRF:4
 BRH:3
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\AllGood.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/AllGood.js
 FN:5,(anonymous_0)
 FNF:1
 FNH:1
@@ -228,7 +228,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\FirstStepScreening.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/FirstStepScreening.js
 FN:6,(anonymous_0)
 FN:14,(anonymous_1)
 FN:19,(anonymous_2)
@@ -283,7 +283,7 @@ BRF:12
 BRH:4
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Footer.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/Footer.js
 FN:5,(anonymous_0)
 FNF:1
 FNH:1
@@ -297,7 +297,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\GraphSelector.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/GraphSelector.js
 FN:4,(anonymous_0)
 FN:9,(anonymous_1)
 FNF:2
@@ -313,21 +313,21 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Home.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/Home.js
 FN:6,(anonymous_0)
 FNF:1
 FNH:0
 FNDA:0,(anonymous_0)
-DA:6,0
+DA:6,1
 DA:7,0
 DA:8,0
 LF:3
-LH:0
+LH:1
 BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Loader.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/Loader.js
 FN:4,(anonymous_0)
 FNF:1
 FNH:0
@@ -340,7 +340,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\NavBar.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/NavBar.js
 FN:6,(anonymous_0)
 FN:8,(anonymous_1)
 FN:57,(anonymous_2)
@@ -368,7 +368,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\PotentialSickCase.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/PotentialSickCase.js
 FN:4,(anonymous_0)
 FNF:1
 FNH:0
@@ -382,7 +382,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Profile.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/Profile.js
 FN:8,(anonymous_0)
 FN:23,handleSubmit
 FN:35,handleAddressChange
@@ -434,7 +434,7 @@ BRF:12
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Protection.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/Protection.js
 FN:5,(anonymous_0)
 FNF:1
 FNH:0
@@ -448,7 +448,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Components\SecondStepScreening.js
+SF:/home/jfmajurel/Documents/cod-19/src/Components/SecondStepScreening.js
 FN:5,(anonymous_0)
 FN:11,handleSubmit
 FN:16,handleConditionUpdate
@@ -496,7 +496,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Containers\Patients.js
+SF:/home/jfmajurel/Documents/cod-19/src/Containers/Patients.js
 FN:9,(anonymous_0)
 FN:19,(anonymous_1)
 FN:22,(anonymous_2)
@@ -613,7 +613,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Containers\Screening.js
+SF:/home/jfmajurel/Documents/cod-19/src/Containers/Screening.js
 FN:13,(anonymous_0)
 FN:22,(anonymous_1)
 FN:26,(anonymous_2)
@@ -658,7 +658,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Containers\Situation.js
+SF:/home/jfmajurel/Documents/cod-19/src/Containers/Situation.js
 FN:11,(anonymous_0)
 FN:33,(anonymous_1)
 FN:35,handleCountriesChange
@@ -828,7 +828,7 @@ BRF:16
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\apiCall.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/apiCall.js
 FN:1,apiCall
 FN:12,(anonymous_1)
 FNF:2
@@ -855,7 +855,7 @@ BRF:8
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\GP\profileService.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/GP/profileService.js
 FN:4,getProfileByEmail
 FN:11,createProfile
 FN:19,updateProfile
@@ -873,7 +873,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\GP\specialityService.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/GP/specialityService.js
 FN:3,getAllSpecialities
 FNF:1
 FNH:0
@@ -885,7 +885,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Health\conditionService.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/Health/conditionService.js
 FN:3,getAllConditions
 FNF:1
 FNH:0
@@ -897,7 +897,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Health\symptomService.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/Health/symptomService.js
 FN:3,getAllSymptoms
 FNF:1
 FNH:0
@@ -909,7 +909,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Patient\patientService.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/Patient/patientService.js
 FN:4,postPatient
 FN:13,getAllPatient
 FNF:2
@@ -924,7 +924,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Situation\countryService.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/Situation/countryService.js
 FN:3,getSituationByCountry
 FN:6,(anonymous_1)
 FN:9,getAllCountries
@@ -942,7 +942,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Situation\situationService.js
+SF:/home/jfmajurel/Documents/cod-19/src/Services/Situation/situationService.js
 FN:3,getAllGlobalSituations
 FNF:1
 FNH:0

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1641300638768" clover="3.2.0">
-  <project timestamp="1641300638768" name="All files">
-    <metrics statements="346" coveredstatements="22" conditionals="90" coveredconditionals="7" methods="129" coveredmethods="7" elements="565" coveredelements="36" complexity="0" loc="346" ncloc="346" packages="9" files="29" classes="29"/>
+<coverage generated="1641414577672" clover="3.2.0">
+  <project timestamp="1641414577672" name="All files">
+    <metrics statements="346" coveredstatements="23" conditionals="90" coveredconditionals="7" methods="129" coveredmethods="7" elements="565" coveredelements="37" complexity="0" loc="346" ncloc="346" packages="9" files="29" classes="29"/>
     <package name="src">
       <metrics statements="25" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="0"/>
-      <file name="App.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\App.js">
+      <file name="App.js" path="/home/jfmajurel/Documents/cod-19/src/App.js">
         <metrics statements="21" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="24" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
@@ -28,12 +28,12 @@
         <line num="63" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
       </file>
-      <file name="i18n.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\i18n.js">
+      <file name="i18n.js" path="/home/jfmajurel/Documents/cod-19/src/i18n.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
       </file>
-      <file name="index.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\index.js">
+      <file name="index.js" path="/home/jfmajurel/Documents/cod-19/src/index.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
@@ -41,7 +41,7 @@
     </package>
     <package name="src.Auth">
       <metrics statements="35" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="14" coveredmethods="0"/>
-      <file name="Auth.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Auth\Auth.js">
+      <file name="Auth.js" path="/home/jfmajurel/Documents/cod-19/src/Auth/Auth.js">
         <metrics statements="25" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
@@ -69,14 +69,14 @@
         <line num="61" count="0" type="stmt"/>
         <line num="65" count="0" type="stmt"/>
       </file>
-      <file name="Callback.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Auth\Callback.js">
+      <file name="Callback.js" path="/home/jfmajurel/Documents/cod-19/src/Auth/Callback.js">
         <metrics statements="4" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="15" count="0" type="stmt"/>
       </file>
-      <file name="SecuredRoute.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Auth\SecuredRoute.js">
+      <file name="SecuredRoute.js" path="/home/jfmajurel/Documents/cod-19/src/Auth/SecuredRoute.js">
         <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -87,8 +87,8 @@
       </file>
     </package>
     <package name="src.Components">
-      <metrics statements="101" coveredstatements="20" conditionals="40" coveredconditionals="7" methods="39" coveredmethods="7"/>
-      <file name="Address.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Address.js">
+      <metrics statements="101" coveredstatements="21" conditionals="40" coveredconditionals="7" methods="39" coveredmethods="7"/>
+      <file name="Address.js" path="/home/jfmajurel/Documents/cod-19/src/Components/Address.js">
         <metrics statements="18" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="7" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="1" type="cond" truecount="3" falsecount="1"/>
@@ -109,13 +109,13 @@
         <line num="81" count="0" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
       </file>
-      <file name="AllGood.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\AllGood.js">
+      <file name="AllGood.js" path="/home/jfmajurel/Documents/cod-19/src/Components/AllGood.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
       </file>
-      <file name="FirstStepScreening.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\FirstStepScreening.js">
+      <file name="FirstStepScreening.js" path="/home/jfmajurel/Documents/cod-19/src/Components/FirstStepScreening.js">
         <metrics statements="20" coveredstatements="7" conditionals="12" coveredconditionals="4" methods="7" coveredmethods="3"/>
         <line num="7" count="2" type="stmt"/>
         <line num="9" count="2" type="stmt"/>
@@ -138,30 +138,30 @@
         <line num="50" count="2" type="stmt"/>
         <line num="58" count="3" type="stmt"/>
       </file>
-      <file name="Footer.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Footer.js">
+      <file name="Footer.js" path="/home/jfmajurel/Documents/cod-19/src/Components/Footer.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
       </file>
-      <file name="GraphSelector.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\GraphSelector.js">
+      <file name="GraphSelector.js" path="/home/jfmajurel/Documents/cod-19/src/Components/GraphSelector.js">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
       </file>
-      <file name="Home.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Home.js">
-        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="6" count="0" type="stmt"/>
+      <file name="Home.js" path="/home/jfmajurel/Documents/cod-19/src/Components/Home.js">
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
       </file>
-      <file name="Loader.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Loader.js">
+      <file name="Loader.js" path="/home/jfmajurel/Documents/cod-19/src/Components/Loader.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
       </file>
-      <file name="NavBar.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\NavBar.js">
+      <file name="NavBar.js" path="/home/jfmajurel/Documents/cod-19/src/Components/NavBar.js">
         <metrics statements="7" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -171,13 +171,13 @@
         <line num="12" count="0" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
       </file>
-      <file name="PotentialSickCase.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\PotentialSickCase.js">
+      <file name="PotentialSickCase.js" path="/home/jfmajurel/Documents/cod-19/src/Components/PotentialSickCase.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
       </file>
-      <file name="Profile.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Profile.js">
+      <file name="Profile.js" path="/home/jfmajurel/Documents/cod-19/src/Components/Profile.js">
         <metrics statements="17" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
@@ -197,13 +197,13 @@
         <line num="74" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
       </file>
-      <file name="Protection.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\Protection.js">
+      <file name="Protection.js" path="/home/jfmajurel/Documents/cod-19/src/Components/Protection.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
       </file>
-      <file name="SecondStepScreening.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Components\SecondStepScreening.js">
+      <file name="SecondStepScreening.js" path="/home/jfmajurel/Documents/cod-19/src/Components/SecondStepScreening.js">
         <metrics statements="19" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
@@ -228,7 +228,7 @@
     </package>
     <package name="src.Containers">
       <metrics statements="167" coveredstatements="0" conditionals="26" coveredconditionals="0" methods="56" coveredmethods="0"/>
-      <file name="Patients.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Containers\Patients.js">
+      <file name="Patients.js" path="/home/jfmajurel/Documents/cod-19/src/Containers/Patients.js">
         <metrics statements="64" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="19" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
@@ -295,7 +295,7 @@
         <line num="181" count="0" type="stmt"/>
         <line num="185" count="0" type="stmt"/>
       </file>
-      <file name="Screening.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Containers\Screening.js">
+      <file name="Screening.js" path="/home/jfmajurel/Documents/cod-19/src/Containers/Screening.js">
         <metrics statements="20" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
@@ -318,7 +318,7 @@
         <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="48" count="0" type="stmt"/>
       </file>
-      <file name="Situation.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Containers\Situation.js">
+      <file name="Situation.js" path="/home/jfmajurel/Documents/cod-19/src/Containers/Situation.js">
         <metrics statements="83" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="31" coveredmethods="0"/>
         <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -407,7 +407,7 @@
     </package>
     <package name="src.Services">
       <metrics statements="6" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="apiCall.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\apiCall.js">
+      <file name="apiCall.js" path="/home/jfmajurel/Documents/cod-19/src/Services/apiCall.js">
         <metrics statements="6" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
         <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -419,31 +419,31 @@
     </package>
     <package name="src.Services.GP">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="profileService.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\GP\profileService.js">
+      <file name="profileService.js" path="/home/jfmajurel/Documents/cod-19/src/Services/GP/profileService.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
       </file>
-      <file name="specialityService.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\GP\specialityService.js">
+      <file name="specialityService.js" path="/home/jfmajurel/Documents/cod-19/src/Services/GP/specialityService.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.Services.Health">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="conditionService.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Health\conditionService.js">
+      <file name="conditionService.js" path="/home/jfmajurel/Documents/cod-19/src/Services/Health/conditionService.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
       </file>
-      <file name="symptomService.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Health\symptomService.js">
+      <file name="symptomService.js" path="/home/jfmajurel/Documents/cod-19/src/Services/Health/symptomService.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.Services.Patient">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="patientService.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Patient\patientService.js">
+      <file name="patientService.js" path="/home/jfmajurel/Documents/cod-19/src/Services/Patient/patientService.js">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="5" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
@@ -451,13 +451,13 @@
     </package>
     <package name="src.Services.Situation">
       <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="countryService.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Situation\countryService.js">
+      <file name="countryService.js" path="/home/jfmajurel/Documents/cod-19/src/Services/Situation/countryService.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
       </file>
-      <file name="situationService.js" path="C:\Users\jmajurel\Documents\dev\cod-19\src\Services\Situation\situationService.js">
+      <file name="situationService.js" path="/home/jfmajurel/Documents/cod-19/src/Services/Situation/situationService.js">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
       </file>
