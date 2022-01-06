@@ -6,5 +6,5 @@ it("renders with an address", () => {
   const mockAddress = { address1: "192 burnaby road" };
   render(<Address existingAddress={mockAddress} />);
   const input = screen.getByDisplayValue(mockAddress.address1);
-  expect(input.value).toBe(mockAddress.address1);
+  expect(input).toBeTruthy();
 });
