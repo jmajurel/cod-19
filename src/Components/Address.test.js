@@ -19,7 +19,7 @@ it("reacts when user makes an address update", () => {
   fireEvent.change(countryInput, { target: { value: newCountry } });
   expect(countryInput.value).toBe(newCountry);
 
-  expect(onChange.mock.calls.length).toBe(1);
+  expect(onChange).toHaveBeenCalledTimes(1);
   expect(onChange.mock.calls[0][0]).toEqual({
     ...mockAddress,
     country: newCountry,

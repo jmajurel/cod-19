@@ -15,6 +15,6 @@ it("does submit form", () => {
   render(<Profile existingProfile={mockProfile} onSubmit={onSubmit} />);
   const submitBtn = screen.getByRole("button");
   fireEvent.click(submitBtn);
-  expect(onSubmit.mock.calls.length).toBe(1);
+  expect(onSubmit).toHaveBeenCalledTimes(1);
   expect(onSubmit.mock.calls[0][0]).toMatchObject(mockProfile);
 });
