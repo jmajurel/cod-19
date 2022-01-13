@@ -1,9 +1,10 @@
 import React from "react";
 import Footer from "./Footer";
-import renderer from "react-test-renderer";
+import { render, screen } from "../test-units";
+import frenchTranslation from "../translations/french.json";
 
-test("display", () => {
-  const component = renderer.create(<Footer />);
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+it("displays right info", () => {
+  render(<Footer />);
+  const note = screen.getByText(frenchTranslation.translation.footer.note);
+  expect(note).toBeTruthy();
 });
