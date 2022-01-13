@@ -1,38 +1,38 @@
 import React from "react";
 import { withTranslation } from "react-i18next";
-import "./FirstStepScreeming.css";
+import "./FirstStepScreening.css";
 
 class FirstStepScreening extends React.Component {
   constructor(props) {
     super(props);
     //const { symptoms, t, i18n } = this.props;
     this.state = {
-      selectedSymptoms: []
+      selectedSymptoms: [],
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     event.preventDefault();
     this.props.onSubmit(this.state.selectedSymptoms);
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const newSymptom = event.target.value;
     const isActive = event.target.checked;
     let selectedSymptoms = [...this.state.selectedSymptoms];
     const foundItemIdx = selectedSymptoms.findIndex(
-      symptom => symptom === newSymptom
+      (symptom) => symptom === newSymptom
     );
     if (isActive) {
       if (foundItemIdx < 0) selectedSymptoms.push(newSymptom);
     } else {
       if (foundItemIdx >= 0)
         selectedSymptoms = selectedSymptoms.filter(
-          symptom => symptom !== newSymptom
+          (symptom) => symptom !== newSymptom
         );
     }
     this.setState({
-      selectedSymptoms
+      selectedSymptoms,
     });
   };
 
@@ -45,7 +45,7 @@ class FirstStepScreening extends React.Component {
       Cough: "😤",
       "Shortness of breath": "😤",
       Nausea: "🤢",
-      Diarrhoea: "😩"
+      Diarrhoea: "😩",
     };
     return (
       <div className="card firstStepScreening">
@@ -54,7 +54,7 @@ class FirstStepScreening extends React.Component {
           <h3>{this.props.t("firstStepScreening.subTitle")}</h3>
           <ul className="symptoms">
             {this.props.symptoms &&
-              this.props.symptoms.map(symptom => (
+              this.props.symptoms.map((symptom) => (
                 <li key={symptom._id}>
                   <span aria-label={symptom.name} role="img">
                     {smileys[symptom.name] ? smileys[symptom.name] : "😵"}
